@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+.headerBanner {
+  width: 100vw;
+  height: 40px;
+  background-color: red;
+}
