@@ -13,7 +13,7 @@
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 25px;
   margin: 0;
   margin-left: 20px;
   color: white;
@@ -55,13 +55,87 @@ h1 {
 .mainContainerBody {
   width: 100vw;
   height: 840px;
-  background-color: grey;
+  background-color: white;
   display: flex;
   justify-content: space-around;
 }
 
 .ColumnForList {
+  margin-top: 10px;
   width: 300px;
   height: 800px;
-  background-color: yellow;
+  /* background-color: rgba(121, 165, 234, 0.2); */
+}
+
+.AddListContainer {
+  border: solid;
+  border-width: thin;
+  border-color: #79a5ea;
+  border-radius: 5px;
+  background-color: rgba(121, 165, 234, 0.2);
+  margin: 10px;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.AddListContainer:hover {
+  background-color: rgba(121, 165, 234, 0.5);
+}
+
+.AddListText {
+  font-family: "Nunito Sans", sans-serif;
+  margin-left: 10px;
+}
+
+.AddInputBox {
+  border: solid;
+  border-width: thin;
+  border-color: #79a5ea;
+  border-radius: 5px;
+  background-color: rgba(121, 165, 234, 0.2);
+  margin: 10px;
+  height: 40px;
+  width: 280px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.AddListInputContainer {
+  width: 300px;
+  height: 110px;
+  border-radius: 6px;
+  background-color: rgba(121, 165, 234, 0.2);
+}
+
+.InputListButtonContainer {
+  width: 35px;
+  height: 35px;
+  border: solid;
+  border-width: thin;
+  border-radius: 3px;
+  border-color: rgba(121, 165, 234, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.InputListButtonContainer:hover {
+  background-color: rgba(121, 165, 234, 0.5);
+  border-color: #ffffff;
+}
+
+.InputListButtonText {
+  font-size: 30px;
+  margin-bottom: 5px;
+  color: rgb(121, 165, 234);
+}
+
+.InputListButtonContainer:hover .InputListButtonText {
+  color: #ffffff;
 }

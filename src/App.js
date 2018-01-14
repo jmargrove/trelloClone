@@ -12,9 +12,6 @@ class App extends Component {
         <ProjectTitleBar />
         <div className="mainContainerBody">
           <ItemColumn />
-          <ItemColumn />
-          <ItemColumn />
-          <ItemColumn />
         </div>
       </div>
     );
