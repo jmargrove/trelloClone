@@ -5,8 +5,19 @@ class AddListInput extends Component {
   render() {
     return (
       <div className="AddListInputContainer">
-        <input placeholder="Add a list..." className="AddInputBox" />
-        <InputListButton />
+        <div className="AddInputBox">
+          <input
+            ref={node => (this.listname = node)}
+            placeholder="Add a list..."
+            className="AddListInput"
+          />
+        </div>
+        <InputListButton
+          onClick={() => {
+            this.props.showList();
+            this.props.addListName(this.listname.value);
+          }}
+        />
       </div>
     );
   }
