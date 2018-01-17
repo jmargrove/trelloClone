@@ -7,6 +7,7 @@ class AddListInput extends Component {
       <div className="AddListInputContainer">
         <div className="AddInputBox">
           <input
+            autoFocus={true}
             ref={node => (this.listname = node)}
             placeholder="Add a list..."
             className="AddListInput"

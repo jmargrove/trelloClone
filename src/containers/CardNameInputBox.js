@@ -1,12 +1,28 @@
 import React, { Component } from "react";
-// import addListButton from "./addListButton.js";
+import InputListButton from "./InputListButton.js";
 class CardNameInputBox extends Component {
+  addingNewCardName = () => {
+    console.log("calling and showing teh new", this.newCardName.value);
+    this.props.addCardName(this.newCardName.value);
+    this.props.showAddCardButton();
+  };
+
   render() {
-    console.log("this is the props", this.props);
     return (
-      <div className="AddACardContainer">
-        <input placeholder="Add card..." />
-        <addListButton />
+      <div>
+        <div className="CardInputBoxContainer">
+          <div className="ListCardDetails">
+            <textarea
+              ref={el => (this.newCardName = el)}
+              required={true}
+              rows="3"
+              autoFocus={true}
+              className="ListCardDetailsInput"
+              placeholder="Add card name..."
+            />
+          </div>
+        </div>
+        <InputListButton onClick={this.addingNewCardName} />
       </div>
     );
   }
