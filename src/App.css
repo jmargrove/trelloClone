@@ -75,7 +75,7 @@ h1 {
 
 .ColumnForList {
   margin-top: 10px;
-  width: 300px;
+  width: 270px;
   height: 800px;
   /* background-color: rgba(121, 165, 234, 0.2); */
 }
@@ -84,7 +84,6 @@ h1 {
   border-radius: 5px;
   background-color: rgba(121, 165, 234, 0.2);
   margin: 5px;
-  margin-left: 10px;
   height: 40px;
   display: flex;
   justify-content: flex-start;
@@ -113,17 +112,16 @@ h1 {
   border-radius: 5px;
   background-color: rgba(121, 165, 234, 0.2);
   margin: 5px;
-  margin-left: 10px;
   height: 40px;
-  width: 280px;
+  width: 255px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .AddListInputContainer {
-  width: 300px;
-  height: 95px;
+  /* width: 300px; */
+  /* height: 95px; */
   border-radius: 6px;
   background-color: rgba(121, 165, 234, 0.2);
   overflow: auto;
@@ -134,7 +132,7 @@ h1 {
   margin: 10px;
   background-color: transparent;
   height: 30px;
-  width: 250px;
+  width: 230px;
   font-family: "Nunito Sans", sans-serif;
   font-size: 15px;
   margin-left: 10px;
@@ -161,6 +159,7 @@ h1 {
   align-items: center;
   margin-left: 10px;
   cursor: pointer;
+  margin-bottom: 5px;
 }
 
 input {
@@ -184,8 +183,8 @@ input {
 
 .ListContainer {
   overflow: auto;
-  width: 300px;
-  height: 95px;
+  /* width: 300px; */
+  /* height: 95px; */
   background-color: rgba(121, 165, 234, 0.2);
   border-radius: 6px;
 }
@@ -235,7 +234,7 @@ input {
 }
 
 .AddACardContainer {
-  width: 300px;
+  /* width: 300px; */
   height: 40px;
   display: flex;
   justify-content: flex-start;
@@ -254,4 +253,56 @@ input {
   color: #300c1b;
   font-size: 15px;
   font-family: "Nunito Sans", sans-serif;
+}
+
+.CardInputBoxContainer {
+  height: 75px;
+  /* background-color: lightblue; */
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+}
+
+.ListCardDetails {
+  width: 250px;
+  height: 65px;
+  margin-top: 5px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 6px;
+}
+
+.ListCardDetailsInput {
+  outline: none;
+  border: none;
+  width: 230px;
+  height: 30px;
+  background-color: white;
+  font-size: 15px;
+  overflow: hidden;
+  word-wrap: break-word;
+  resize: none;
+  height: 54px;
+}
+
+.CardItemContainer {
+  /* display: flex;
+  justify-content: center; */
+}
+
+.CardItem {
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 6px;
+  display: flex;
+  justify-content: flex-start;
+}
+.CardItemText {
+  font-size: 15px;
+  color: black;
+  text-align: left;
 }
