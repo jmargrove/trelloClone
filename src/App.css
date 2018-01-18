@@ -200,7 +200,7 @@ input {
 }
 
 .ListTitle {
-  margin-left: 15px;
+  margin-left: 5px;
   font-size: 17px;
   color: #300c1b;
   font-family: "Nunito Sans", sans-serif;
@@ -256,7 +256,7 @@ input {
 }
 
 .CardInputBoxContainer {
-  height: 75px;
+  /* height: 90px; */
   /* background-color: lightblue; */
   display: flex;
   justify-content: center;
@@ -264,8 +264,10 @@ input {
 }
 
 .ListCardDetails {
+  overflow: auto;
   width: 250px;
-  height: 65px;
+  padding: 10px;
+  margin: 10px;
   margin-top: 5px;
   background-color: white;
   display: flex;
@@ -273,36 +275,59 @@ input {
   align-items: center;
   border: none;
   border-radius: 6px;
+  height: 64px;
 }
 
-.ListCardDetailsInput {
+textarea.ListCardDetailsInput {
   outline: none;
   border: none;
   width: 230px;
-  height: 30px;
   background-color: white;
   font-size: 15px;
   overflow: hidden;
   word-wrap: break-word;
   resize: none;
-  height: 54px;
 }
 
 .CardItemContainer {
+  overflow: auto;
   /* display: flex;
   justify-content: center; */
 }
 
 .CardItem {
   margin: 10px;
+  margin-top: 5px;
   padding: 10px;
   background-color: white;
   border-radius: 6px;
   display: flex;
   justify-content: flex-start;
+  cursor: pointer;
 }
 .CardItemText {
   font-size: 15px;
   color: black;
   text-align: left;
 }
+
+/* .CardItem:hover {
+  background-color: rgba(121, 165, 234, 0.5);
+}
+
+.CardItem:hover .CardOptionsButtonContainer {
+  position: relative;
+  left: 200px;
+  z-index: 2;
+  background-color: blue;
+  width: 12px;
+  height: 12px;
+  padding: 3px;
+}
+.CarOptionsButton {
+}
+.OptionsBar {
+  margin: 2px;
+  height: 2px;
+  background-color: black;
+} */
