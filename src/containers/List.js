@@ -20,6 +20,7 @@ class List extends Component {
     });
   };
 
+  // showing the card input
   showCardNameInput = () => {
     this.setState((prevState, props) => {
       return { showCardNameInput: !prevState.showCardNameInput };
