@@ -1,27 +1,53 @@
-import React, { Component } from "react";
-import InputListButton from "./InputListButton.js";
+import React from "react";
+import SquareButton from "./InputListButton.js";
+import styled from "styled-components";
 
-class AddListInput extends Component {
-  render() {
-    return (
-      <div className="AddListInputContainer">
-        <div className="AddInputBox">
-          <input
-            autoFocus={true}
-            ref={node => (this.listname = node)}
-            placeholder="Add a list..."
-            className="AddListInput"
-          />
-        </div>
-        <InputListButton
-          onClick={() => {
-            this.props.showList();
-            this.props.addListName(this.listname.value);
-          }}
+const AddListInput = props => {
+  return (
+    <ListContainer>
+      <ListNameContainer>
+        <ListNameInput
+          autoFocus={true}
+          innerRef={comp => (this.input = comp)}
+          placeholder="Add a list..."
         />
-      </div>
-    );
-  }
-}
+      </ListNameContainer>
+      <SquareButton
+        symbol="+"
+        onClick={() => {
+          props.showList();
+          props.addListName(this.input.value);
+        }}
+      />
+    </ListContainer>
+  );
+};
+
+const ListContainer = styled.div`
+  border-radius: 5px;
+  background-color: rgba(121, 165, 234, 0.2);
+  overflow: auto;
+`;
+
+const ListNameContainer = styled.div`
+  border-radius: 5px;
+  background-color: rgba(121, 165, 234, 0.5);
+  height: 40px;
+  overflow: auto;
+  margin: 10px;
+`;
+
+const ListNameInput = styled.input`
+  display: block;
+  height: 22px;
+  width: 230px;
+  background-color: transparent;
+  border: none;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
+  color: #300c1b;
+  overflow: none;
+  margin: 10px;
+`;
 
 export default AddListInput;
