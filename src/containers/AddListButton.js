@@ -8,7 +8,13 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: center;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(121, 165, 234, 0.5);
+  }
+  &:hover .ButtonText {
+    color: #300c1b;
+  }
 `;
 
 const Text = styled.p`
@@ -19,10 +25,9 @@ const Text = styled.p`
 `;
 
 const AddListButton = props => {
-  console.log(props);
   return (
     <Container onClick={props.onClick}>
-      <Text>Add a list...</Text>
+      <Text className="ButtonText">Add a list...</Text>
     </Container>
   );
 };

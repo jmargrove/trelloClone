@@ -80,14 +80,6 @@ h1 {
   /* background-color: rgba(121, 165, 234, 0.2); */
 }
 
-.AddListContainer:hover {
-  background-color: rgba(121, 165, 234, 0.5);
-}
-
-.AddListContainer:hover .AddListText {
-  color: #300c1b;
-}
-
 .AddInputBox {
   border: solid;
   border-width: thin;
