@@ -14,4 +14,12 @@ class AddCardButton extends Component {
   }
 }
 
+const styles = {
+  height: "40px",
+  display: "flex",
+  "justify-content": "flex-start",
+  "align-items": "center",
+  cursor: "pointer"
+};
+
 export default AddCardButton;

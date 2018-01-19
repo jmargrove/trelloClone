@@ -80,25 +80,8 @@ h1 {
   /* background-color: rgba(121, 165, 234, 0.2); */
 }
 
-.AddListContainer {
-  border-radius: 5px;
-  background-color: rgba(121, 165, 234, 0.2);
-  margin: 5px;
-  height: 40px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  cursor: pointer;
-}
-
 .AddListContainer:hover {
   background-color: rgba(121, 165, 234, 0.5);
-}
-
-.AddListText {
-  font-family: "Nunito Sans", sans-serif;
-  margin-left: 10px;
-  color: white;
 }
 
 .AddListContainer:hover .AddListText {
