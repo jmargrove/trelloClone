@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
+const ListNameContainer = styled.div`
+  height: 40px;
   border-radius: 5px;
   background-color: rgba(121, 165, 234, 0.2);
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
+  overflow: auto;
+  margin: 10px;
+  margin-top: 20px;
   &:hover {
     background-color: rgba(121, 165, 234, 0.5);
   }
@@ -19,16 +19,17 @@ const Container = styled.div`
 
 const Text = styled.p`
   font-family: "Nunito Sans", sans-serif;
-  margin-left: 10px;
+  margin: 10px;
   color: white;
   text-align: left;
+  font-size: 15px;
 `;
 
 const AddListButton = props => {
   return (
-    <Container onClick={props.onClick}>
+    <ListNameContainer onClick={props.onClick}>
       <Text className="ButtonText">Add a list...</Text>
-    </Container>
+    </ListNameContainer>
   );
 };
 
