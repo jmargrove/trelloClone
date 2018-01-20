@@ -8,7 +8,6 @@ const ListNameContainer = styled.div`
   cursor: pointer;
   overflow: auto;
   margin: 10px;
-  margin-top: 20px;
   &:hover {
     background-color: rgba(121, 165, 234, 0.5);
   }
@@ -21,6 +20,7 @@ const Text = styled.p`
   font-family: "Nunito Sans", sans-serif;
   margin: 10px;
   color: white;
+  font-weight: bold;
   text-align: left;
   font-size: 15px;
 `;
