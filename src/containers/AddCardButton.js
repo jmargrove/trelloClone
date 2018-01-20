@@ -1,25 +1,33 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
-class AddCardButton extends Component {
-  render() {
-    console.log("this is the props", this.props);
-    return (
-      <div
-        onClick={() => this.props.showCardNameInput()}
-        className="AddACardContainer"
-      >
-        <div className="AddACardtext"> Add a card...</div>
-      </div>
-    );
+const AddACardContainer = styled.div`
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(121, 165, 234, 0.5);
   }
-}
+  &:hover .AddACardtext {
+    color: white;
+  }
+`;
 
-const styles = {
-  height: "40px",
-  display: "flex",
-  "justify-content": "flex-start",
-  "align-items": "center",
-  cursor: "pointer"
+const AddACardtext = styled.div`
+  margin-left: 10px;
+  color: #300c1b;
+  font-size: 15px;
+  font-family: "Nunito Sans", sans-serif;
+`;
+
+const AddCardButton = props => {
+  return (
+    <AddACardContainer onClick={() => props.showCardNameInput()}>
+      <AddACardtext className="AddACardtext"> Add a card...</AddACardtext>
+    </AddACardContainer>
+  );
 };
 
 export default AddCardButton;
