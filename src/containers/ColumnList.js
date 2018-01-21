@@ -17,6 +17,7 @@ class ColumnList extends Component {
       <ColumnListContainer>
         <ListContainer>
           <ListHeader addedTitle={() => this.setState({ cardInput: true })} />
+
           {this.state.cardInput ? <CardInput /> : null}
         </ListContainer>
       </ColumnListContainer>

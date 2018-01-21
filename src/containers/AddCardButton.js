@@ -24,7 +24,7 @@ const AddACardtext = styled.div`
 
 const AddCardButton = props => {
   return (
-    <AddACardContainer onClick={() => props.showCardNameInput()}>
+    <AddACardContainer onClick={() => props.onClick()}>
       <AddACardtext className="AddACardtext"> Add a card...</AddACardtext>
     </AddACardContainer>
   );
