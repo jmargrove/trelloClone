@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 class CardNameInputBox extends Component {
   addingNewCardName = () => {
-    console.log("the card input");
     this.props.onClick();
     this.props.addingToTheCardlist(this.newCardName.value);
   };
@@ -23,7 +22,6 @@ class CardNameInputBox extends Component {
         </CardItemContainer>
         <SquareButton
           onClick={() => {
-            console.log("the card name", this.newCardName.value);
             this.addingNewCardName();
           }}
         />

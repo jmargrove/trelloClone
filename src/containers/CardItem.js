@@ -1,5 +1,4 @@
 import React from "react";
-import CardOptionsButton from "./CardOptionsButton.js";
 import styled from "styled-components";
 
 const CardItemContainer = styled.div`
@@ -19,11 +18,9 @@ const CardItemText = styled.div`
 `;
 
 const CardItem = props => {
-  console.log("card Itme #########", props);
   return (
     <div style={{ overflow: "auto" }}>
       <CardItemContainer>
-        <CardOptionsButton />
         <CardItemText>{props.children}</CardItemText>
       </CardItemContainer>
     </div>
