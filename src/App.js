@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Header from "./containers/Header.js";
 import ProjectTitleBar from "./containers/ProjectTitleBar.js";
-import ItemColumn from "./containers/ItemColumn.js";
-import ColumnList from "./containers/ColumnList.js";
+import ColumnContainer from "./containers/ColumnContainer.js";
 import "./App.css";
 
 class App extends Component {
@@ -11,9 +10,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <ProjectTitleBar />
-        <div className="mainContainerBody">
-          <ColumnList />
-        </div>
+        <ColumnContainer />
       </div>
     );
   }

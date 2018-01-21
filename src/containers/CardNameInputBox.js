@@ -1,29 +1,7 @@
 import React, { Component } from "react";
 import InputListButton from "./InputListButton.js";
 import styled from "styled-components";
-
-const ListCardDetailsInput = styled.textarea`
-  outline: none;
-  border: none;
-  width: 230px;
-  background-color: white;
-  font-size: 15px;
-  overflow: hidden;
-  resize: none;
-  font-family: "Nunito Sans", sans-serif;
-  font-weight: normal;
-`;
-
-const CardItemContainer = styled.div`
-  margin: 10px;
-  margin-top: 0;
-  padding: 10px;
-  background-color: white;
-  border-radius: 6px;
-  display: flex;
-  justify-content: flex-start;
-  cursor: pointer;
-`;
+import connect from "react-redux";
 
 class CardNameInputBox extends Component {
   addingNewCardName = () => {
@@ -50,4 +28,27 @@ class CardNameInputBox extends Component {
   }
 }
 
-export default CardNameInputBox;
+const ListCardDetailsInput = styled.textarea`
+  outline: none;
+  border: none;
+  width: 230px;
+  background-color: white;
+  font-size: 15px;
+  overflow: hidden;
+  resize: none;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: normal;
+`;
+
+const CardItemContainer = styled.div`
+  margin: 10px;
+  margin-top: 0;
+  padding: 10px;
+  background-color: white;
+  border-radius: 6px;
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer;
+`;
+
+export default connect(null, mapDispatchtToProps)(CardNameInputBox);

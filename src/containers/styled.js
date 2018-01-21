@@ -13,6 +13,8 @@ const ColumnListContainer = styled.div`
   width: 270px;
   height: 800px;
   background-color: transparent;
+  margin-left: 5px;
+  margin-right: 5px;
 `;
 
 export { ListContainer, ColumnListContainer };

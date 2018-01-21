@@ -28,6 +28,10 @@ class ColumnList extends Component {
     });
   };
 
+  listHeaderHandeler = () => {
+    this.setState({ cardInput: true });
+  };
+
   render() {
     return (
       <ColumnListContainer>
