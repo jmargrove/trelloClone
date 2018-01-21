@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const AddListInput = props => {
   return (
-    <ListContainer>
+    <div>
       <ListNameContainer>
         <ListNameInput
           autoFocus={true}
@@ -15,11 +15,11 @@ const AddListInput = props => {
       <SquareButton
         symbol="+"
         onClick={() => {
-          props.showList();
-          props.addListName(this.input.value);
+          props.onClick();
+          props.addListTitle(this.input.value);
         }}
       />
-    </ListContainer>
+    </div>
   );
 };
 
