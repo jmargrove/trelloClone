@@ -5,16 +5,11 @@ import styled from "styled-components";
 const ListCardDetailsInput = styled.textarea`
   outline: none;
   border: none;
-  padding: 0;
-  margin: 0;
   width: 230px;
   background-color: white;
   font-size: 15px;
   overflow: hidden;
-  word-wrap: break-word;
   resize: none;
-  color: black;
-  text-align: left;
   font-family: "Nunito Sans", sans-serif;
   font-weight: normal;
 `;

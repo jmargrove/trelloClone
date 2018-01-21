@@ -15,11 +15,7 @@ const CardItemContainer = styled.div`
 
 const CardItemText = styled.div`
   font-size: 15px;
-  color: black;
-  text-align: left;
-  height: 18;
   font-family: "Nunito Sans", sans-serif;
-  font-weight: normal;
 `;
 
 const CardItem = props => {
