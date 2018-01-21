@@ -20,6 +20,7 @@ const CardItemText = styled.div`
 `;
 
 const CardItem = props => {
+  console.log("card Itme #########", props);
   return (
     <div style={{ overflow: "auto" }}>
       <CardItemContainer>

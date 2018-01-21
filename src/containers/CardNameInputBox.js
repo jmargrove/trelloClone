@@ -5,7 +5,7 @@ class CardNameInputBox extends Component {
   addingNewCardName = () => {
     console.log("calling and showing teh new", this.newCardName.value);
     this.props.onClick();
-    this.props.addCardName(this.newCardName.value);
+    this.props.addingToTheCardlist(this.newCardName.value);
   };
 
   render() {
