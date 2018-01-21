@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SquareButton from "./InputListButton.js";
+import SquareButton from "./SquareButton.js";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { passListTitle } from "../actions";

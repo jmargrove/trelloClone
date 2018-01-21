@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import InputListButton from "./InputListButton.js";
+import SquareButton from "./SquareButton";
 import styled from "styled-components";
 
 class CardNameInputBox extends Component {
   addingNewCardName = () => {
-    console.log("calling and showing the new", this.newCardName.value);
+    console.log("the card input");
     this.props.onClick();
     this.props.addingToTheCardlist(this.newCardName.value);
   };
@@ -21,9 +21,10 @@ class CardNameInputBox extends Component {
             placeholder="Add card name..."
           />
         </CardItemContainer>
-        <InputListButton
+        <SquareButton
           onClick={() => {
-            this.addingNewCardName;
+            console.log("the card name", this.newCardName.value);
+            this.addingNewCardName();
           }}
         />
       </div>

@@ -17,12 +17,15 @@ class ColumnList extends Component {
   }
 
   cardListrender = () => {
-    return this.state.cardList.map(cardItem => {
-      return <CardItem>{cardItem}</CardItem>;
-    });
+    if (this.state.cardList[0] !== null) {
+      return this.state.cardList.map(cardItem => {
+        return <CardItem>{cardItem}</CardItem>;
+      });
+    }
   };
 
   addingToTheCardlist = newCard => {
+    console.log("there is that adding teh the ", newCard);
     this.setState(prevState => {
       prevState.cardList.push(newCard);
       return { cardList: prevState.cardList };
@@ -38,7 +41,7 @@ class ColumnList extends Component {
       <ColumnListContainer>
         <ListContainer>
           <ListTitle listTitle={this.props.listTitle} />
-          {this.state.cardInput ? this.cardListrender() : null}
+          {this.cardListrender()}
           <CardInput addingToTheCardlist={this.addingToTheCardlist} />
         </ListContainer>
       </ColumnListContainer>
