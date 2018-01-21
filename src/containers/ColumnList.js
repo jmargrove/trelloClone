@@ -4,6 +4,7 @@ import { ColumnListContainer, ListContainer } from "./styled";
 import ListHeader from "./ListHeader";
 import CardInput from "./CardInput";
 import CardItem from "./CardItem";
+import ListTitle from "./ListTitle";
 
 class ColumnList extends Component {
   constructor(props) {
@@ -36,11 +37,9 @@ class ColumnList extends Component {
     return (
       <ColumnListContainer>
         <ListContainer>
-          <ListHeader addedTitle={() => this.setState({ cardInput: true })} />
+          <ListTitle listTitle={this.props.listTitle} />
           {this.state.cardInput ? this.cardListrender() : null}
-          {this.state.cardInput ? (
-            <CardInput addingToTheCardlist={this.addingToTheCardlist} />
-          ) : null}
+          <CardInput addingToTheCardlist={this.addingToTheCardlist} />
         </ListContainer>
       </ColumnListContainer>
     );

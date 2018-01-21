@@ -24,7 +24,6 @@ class AddListInput extends Component {
             console.log("function executions");
             this.props.passListTitle(this.input.value);
             this.props.onClick();
-            this.props.addListTitle(this.input.value);
           }}
         />
       </div>

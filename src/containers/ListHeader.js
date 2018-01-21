@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AddListButton from "./AddListButton";
 import AddListInput from "./AddListInput";
-import AddListTitle from "./AddListTitle";
+import ListTitle from "./ListTitle";
 // so this component will show either the button, input or the ListTitle
 
 class ListHeader extends Component {
@@ -23,23 +23,7 @@ class ListHeader extends Component {
   };
 
   switchHandler = () => {
-    switch (this.state.buttonInputTitle) {
-      case "Button":
-        return (
-          <AddListButton
-            onClick={() => this.setState({ buttonInputTitle: "Input" })}
-          />
-        );
-      case "Input":
-        return (
-          <AddListInput
-            addListTitle={this.addListTitle}
-            onClick={this.clickHandler}
-          />
-        );
-      case "Title":
-        return <AddListTitle listTitle={this.state.listTitle} />;
-    }
+    return <ListTitle listTitle={this.state.listTitle} />;
   };
 
   render() {

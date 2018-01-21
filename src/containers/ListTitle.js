@@ -18,7 +18,7 @@ const Text = styled.p`
   font-size: 15px;
 `;
 
-class AddListTitle extends Component {
+class ListTitle extends Component {
   render() {
     console.log(this.props);
     return (
@@ -29,4 +29,4 @@ class AddListTitle extends Component {
   }
 }
 
-export default AddListTitle;
+export default ListTitle;
