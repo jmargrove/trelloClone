@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import InputListButton from "./InputListButton.js";
 import styled from "styled-components";
-import connect from "react-redux";
 
 class CardNameInputBox extends Component {
   addingNewCardName = () => {
@@ -22,7 +21,11 @@ class CardNameInputBox extends Component {
             placeholder="Add card name..."
           />
         </CardItemContainer>
-        <InputListButton onClick={this.addingNewCardName} />
+        <InputListButton
+          onClick={() => {
+            this.addingNewCardName;
+          }}
+        />
       </div>
     );
   }
@@ -51,4 +54,4 @@ const CardItemContainer = styled.div`
   cursor: pointer;
 `;
 
-export default connect(null, mapDispatchtToProps)(CardNameInputBox);
+export default CardNameInputBox;

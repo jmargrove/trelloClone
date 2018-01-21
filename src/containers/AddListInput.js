@@ -1,26 +1,36 @@
-import React from "react";
+import React, { Component } from "react";
 import SquareButton from "./InputListButton.js";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { passListTitle } from "../actions";
 
-const AddListInput = props => {
-  return (
-    <div>
-      <ListNameContainer>
-        <ListNameInput
-          autoFocus={true}
-          innerRef={comp => (this.input = comp)}
-          placeholder="Add a list..."
+const mapDispatchToProps = dispatch => ({
+  passListTitle: listTitle => dispatch(passListTitle(listTitle))
+});
+
+class AddListInput extends Component {
+  render() {
+    return (
+      <div>
+        <ListNameContainer>
+          <ListNameInput
+            autoFocus={true}
+            innerRef={comp => (this.input = comp)}
+            placeholder="Add a list..."
+          />
+        </ListNameContainer>
+        <SquareButton
+          onClick={() => {
+            console.log("function executions");
+            this.props.passListTitle(this.input.value);
+            this.props.onClick();
+            this.props.addListTitle(this.input.value);
+          }}
         />
-      </ListNameContainer>
-      <SquareButton
-        onClick={() => {
-          props.onClick();
-          props.addListTitle(this.input.value);
-        }}
-      />
-    </div>
-  );
-};
+      </div>
+    );
+  }
+}
 
 const ListContainer = styled.div`
   border-radius: 5px;
@@ -50,4 +60,4 @@ const ListNameInput = styled.input`
   font-weight: bold;
 `;
 
-export default AddListInput;
+export default connect(null, mapDispatchToProps)(AddListInput);
