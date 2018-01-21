@@ -3,22 +3,40 @@ import styled from "styled-components";
 import { ColumnListContainer, ListContainer } from "./styled";
 import ListHeader from "./ListHeader";
 import CardInput from "./CardInput";
+import CardItem from "./CardItem";
 
 class ColumnList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cardInput: false
+      cardInput: false,
+      cardList: [],
+      listActive: false
     };
   }
+
+  cardListrender = () => {
+    return this.state.cardList.map(cardItem => {
+      return <CardItem>{cardItem}</CardItem>;
+    });
+  };
+
+  addingToTheCardlist = newCard => {
+    this.setState(prevState => {
+      prevState.cardList.push(newCard);
+      return { cardList: prevState.cardList };
+    });
+  };
 
   render() {
     return (
       <ColumnListContainer>
         <ListContainer>
           <ListHeader addedTitle={() => this.setState({ cardInput: true })} />
-
-          {this.state.cardInput ? <CardInput /> : null}
+          {this.state.cardInput ? this.cardListrender() : null}
+          {this.state.cardInput ? (
+            <CardInput addingToTheCardlist={this.addingToTheCardlist} />
+          ) : null}
         </ListContainer>
       </ColumnListContainer>
     );

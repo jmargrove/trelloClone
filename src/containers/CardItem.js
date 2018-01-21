@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const CardItemContainer = styled.div`
   margin: 10px;
-  margin-top: 5px;
   padding: 10px;
+  margin-top: 0;
   background-color: white;
   border-radius: 6px;
   display: flex;
@@ -15,11 +15,11 @@ const CardItemContainer = styled.div`
 
 const CardItemText = styled.div`
   font-size: 15px;
-  color: black;
-  text-align: left;
+  font-family: "Nunito Sans", sans-serif;
 `;
 
 const CardItem = props => {
+  console.log("card Itme #########", props);
   return (
     <div style={{ overflow: "auto" }}>
       <CardItemContainer>

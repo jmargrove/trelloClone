@@ -1,28 +1,49 @@
 import React, { Component } from "react";
 import InputListButton from "./InputListButton.js";
+import styled from "styled-components";
+
+const ListCardDetailsInput = styled.textarea`
+  outline: none;
+  border: none;
+  width: 230px;
+  background-color: white;
+  font-size: 15px;
+  overflow: hidden;
+  resize: none;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: normal;
+`;
+
+const CardItemContainer = styled.div`
+  margin: 10px;
+  margin-top: 0;
+  padding: 10px;
+  background-color: white;
+  border-radius: 6px;
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer;
+`;
 
 class CardNameInputBox extends Component {
   addingNewCardName = () => {
-    console.log("calling and showing teh new", this.newCardName.value);
+    console.log("calling and showing the new", this.newCardName.value);
     this.props.onClick();
-    this.props.addCardName(this.newCardName.value);
+    this.props.addingToTheCardlist(this.newCardName.value);
   };
 
   render() {
     return (
-      <div>
-        <div className="CardInputBoxContainer">
-          <div className="ListCardDetails">
-            <textarea
-              ref={el => (this.newCardName = el)}
-              required={true}
-              rows="3"
-              autoFocus={true}
-              className="ListCardDetailsInput"
-              placeholder="Add card name..."
-            />
-          </div>
-        </div>
+      <div style={{ overflow: "auto" }}>
+        <CardItemContainer>
+          <ListCardDetailsInput
+            innerRef={el => (this.newCardName = el)}
+            required={true}
+            rows="3"
+            autoFocus={true}
+            placeholder="Add card name..."
+          />
+        </CardItemContainer>
         <InputListButton onClick={this.addingNewCardName} />
       </div>
     );

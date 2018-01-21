@@ -12,7 +12,7 @@ const ColumnListContainer = styled.div`
   margin-top: 10px;
   width: 270px;
   height: 800px;
-  background-color: green;
+  background-color: transparent;
 `;
 
 export { ListContainer, ColumnListContainer };

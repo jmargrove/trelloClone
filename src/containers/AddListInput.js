@@ -13,7 +13,6 @@ const AddListInput = props => {
         />
       </ListNameContainer>
       <SquareButton
-        symbol="+"
         onClick={() => {
           props.onClick();
           props.addListTitle(this.input.value);
@@ -39,15 +38,16 @@ const ListNameContainer = styled.div`
 
 const ListNameInput = styled.input`
   display: block;
-  height: 22px;
+  height: 20px;
   width: 230px;
   background-color: transparent;
   border: none;
   font-family: "Nunito Sans", sans-serif;
   font-size: 15px;
   color: #300c1b;
-  overflow: none;
+  overflow: auto;
   margin: 10px;
+  font-weight: bold;
 `;
 
 export default AddListInput;
