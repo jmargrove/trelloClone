@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { ColumnListContainer, ListContainer } from "./styled";
-import ListHeader from "./ListHeader";
 import CardInput from "./CardInput";
 import CardItem from "./CardItem";
+import ListTitle from "./ListTitle";
 
 class ColumnList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cardInput: false,
-      cardList: [],
-      listActive: false
+      cardList: []
     };
   }
 
   cardListrender = () => {
-    return this.state.cardList.map(cardItem => {
-      return <CardItem>{cardItem}</CardItem>;
-    });
+    if (this.state.cardList[0] !== null) {
+      return this.state.cardList.map(cardItem => {
+        return <CardItem>{cardItem}</CardItem>;
+      });
+    }
   };
 
   addingToTheCardlist = newCard => {
@@ -32,11 +32,9 @@ class ColumnList extends Component {
     return (
       <ColumnListContainer>
         <ListContainer>
-          <ListHeader addedTitle={() => this.setState({ cardInput: true })} />
-          {this.state.cardInput ? this.cardListrender() : null}
-          {this.state.cardInput ? (
-            <CardInput addingToTheCardlist={this.addingToTheCardlist} />
-          ) : null}
+          <ListTitle listTitle={this.props.listTitle} />
+          {this.cardListrender()}
+          <CardInput addingToTheCardlist={this.addingToTheCardlist} />
         </ListContainer>
       </ColumnListContainer>
     );

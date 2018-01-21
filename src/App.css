@@ -25,33 +25,6 @@ h1 {
   font-family: "Pacifico", cursive;
 }
 
-#project {
-  justify-content: flex-start;
-  background: transparent;
-}
-
-.projectTitleText {
-  font-size: 25px;
-  font-family: "Nunito Sans", sans-serif;
-  margin-left: 20px;
-}
-
-.mainContainerBody {
-  width: 100vw;
-  height: 740px;
-  background-color: #fafafa;
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 30px;
-}
-
-.ColumnForList {
-  margin-top: 10px;
-  width: 270px;
-  height: 800px;
-  /* background-color: rgba(121, 165, 234, 0.2); */
-}
-
 .AddListInput::placeholder {
   color: white;
 }
@@ -116,4 +89,13 @@ h1 {
   display: flex;
   justify-content: center;
   overflow: visible;
+}
+
+.ColumnContainer {
+  padding: 10px;
+  width: 100vw;
+  height: 800px;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: row;
 }

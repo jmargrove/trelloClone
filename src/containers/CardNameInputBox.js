@@ -1,6 +1,34 @@
 import React, { Component } from "react";
-import InputListButton from "./InputListButton.js";
+import SquareButton from "./SquareButton";
 import styled from "styled-components";
+
+class CardNameInputBox extends Component {
+  addingNewCardName = () => {
+    this.props.onClick();
+    this.props.addingToTheCardlist(this.newCardName.value);
+  };
+
+  render() {
+    return (
+      <div style={{ overflow: "auto" }}>
+        <CardItemContainer>
+          <ListCardDetailsInput
+            innerRef={el => (this.newCardName = el)}
+            required={true}
+            rows="3"
+            autoFocus={true}
+            placeholder="Add card name..."
+          />
+        </CardItemContainer>
+        <SquareButton
+          onClick={() => {
+            this.addingNewCardName();
+          }}
+        />
+      </div>
+    );
+  }
+}
 
 const ListCardDetailsInput = styled.textarea`
   outline: none;
@@ -24,30 +52,5 @@ const CardItemContainer = styled.div`
   justify-content: flex-start;
   cursor: pointer;
 `;
-
-class CardNameInputBox extends Component {
-  addingNewCardName = () => {
-    console.log("calling and showing the new", this.newCardName.value);
-    this.props.onClick();
-    this.props.addingToTheCardlist(this.newCardName.value);
-  };
-
-  render() {
-    return (
-      <div style={{ overflow: "auto" }}>
-        <CardItemContainer>
-          <ListCardDetailsInput
-            innerRef={el => (this.newCardName = el)}
-            required={true}
-            rows="3"
-            autoFocus={true}
-            placeholder="Add card name..."
-          />
-        </CardItemContainer>
-        <InputListButton onClick={this.addingNewCardName} />
-      </div>
-    );
-  }
-}
 
 export default CardNameInputBox;

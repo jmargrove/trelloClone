@@ -7,8 +7,10 @@
     "mdi-react": "^2.1.19",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
     "react-scripts": "1.0.17",
     "react-style": "^0.5.5",
+    "redux": "^3.7.2",
     "styled-components": "^2.4.0"
   },
   "scripts": {
