@@ -1,9 +1,8 @@
 const defaultState = {
-  listTitles: ["title"]
+  listTitles: []
 };
 
 const reducer = (state = defaultState, action) => {
-  console.log("reducer ....");
   switch (action.type) {
     case "ADD_LIST_TITLE":
       console.log("action working in reducer ");

@@ -11,7 +11,7 @@ class ColumnContainer extends Component {
     console.log("this.state", this.props);
     return (
       <div className="ColumnContainer">
-        <ColumnList />
+        {this.props.listTitles.map(title => <ColumnList title={title} />)}
         <ColumnList />
       </div>
     );
