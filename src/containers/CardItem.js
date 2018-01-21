@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const CardItemContainer = styled.div`
   margin: 10px;
-  margin-top: 5px;
   padding: 10px;
+  margin-top: 0;
   background-color: white;
   border-radius: 6px;
   display: flex;
@@ -17,6 +17,9 @@ const CardItemText = styled.div`
   font-size: 15px;
   color: black;
   text-align: left;
+  height: 18;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: normal;
 `;
 
 const CardItem = props => {
