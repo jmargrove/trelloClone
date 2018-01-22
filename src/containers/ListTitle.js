@@ -7,6 +7,7 @@ const ListNameContainer = styled.div`
   height: 40px;
   overflow: auto;
   margin: 10px;
+  cursor: pointer;
 `;
 
 const Text = styled.p`
