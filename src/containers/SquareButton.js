@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import CheckCircleOutlineIcon from "mdi-react/CheckCircleOutlineIcon";
 
@@ -24,14 +24,7 @@ const InputListButtonContainer = styled.div`
   }
 `;
 
-const InputListButtonText = styled.div`
-  font-size: 30px;
-  margin-bottom: 5px;
-  color: rgb(121, 165, 234);
-`;
-
 const SquareButton = props => {
-  console.log("button props", props);
   return (
     <InputListButtonContainer onClick={props.onClick}>
       <CheckCircleOutlineIcon />

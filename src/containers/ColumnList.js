@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import { ColumnListContainer, ListContainer } from "./styled";
 import CardInput from "./CardInput";
 import CardItem from "./CardItem";
 import ListTitle from "./ListTitle";
+import uuid from "uuid/v1";
 
 class ColumnList extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class ColumnList extends Component {
   cardListrender = () => {
     if (this.state.cardList[0] !== null) {
       return this.state.cardList.map(cardItem => {
-        return <CardItem>{cardItem}</CardItem>;
+        return <CardItem key={uuid()}>{cardItem}</CardItem>;
       });
     }
   };

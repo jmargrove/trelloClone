@@ -21,7 +21,6 @@ class AddListInput extends Component {
         </ListNameContainer>
         <SquareButton
           onClick={() => {
-            console.log("function executions");
             this.props.passListTitle(this.input.value);
             this.props.onClick();
           }}
@@ -30,12 +29,6 @@ class AddListInput extends Component {
     );
   }
 }
-
-const ListContainer = styled.div`
-  border-radius: 5px;
-  background-color: rgba(121, 165, 234, 0.2);
-  overflow: auto;
-`;
 
 const ListNameContainer = styled.div`
   border-radius: 5px;

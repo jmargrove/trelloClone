@@ -27,6 +27,8 @@ class CardInput extends Component {
             }}
           />
         );
+      default:
+        return null;
     }
   }
 
