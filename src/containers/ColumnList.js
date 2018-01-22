@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import { ColumnListContainer, ListContainer } from "./styled";
 import CardInput from "./CardInput";
 import CardItem from "./CardItem";

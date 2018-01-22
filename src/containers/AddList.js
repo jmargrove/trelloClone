@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import { ColumnListContainer, ListContainer } from "./styled";
 import AddListButton from "./AddListButton";
 import AddListInput from "./AddListInput";
@@ -26,6 +25,8 @@ class AddList extends Component {
         );
       case "Input":
         return <AddListInput onClick={this.clickHandler} />;
+      default:
+        return null;
     }
   };
 

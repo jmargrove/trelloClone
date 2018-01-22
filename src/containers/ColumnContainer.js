@@ -10,7 +10,6 @@ const mapStateToProps = state => ({
 
 class ColumnContainer extends Component {
   render() {
-    console.log("this.state", this.props);
     return (
       <div className="ColumnContainer">
         {this.props.listTitles.map(title => (
