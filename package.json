@@ -11,7 +11,8 @@
     "react-scripts": "1.0.17",
     "react-style": "^0.5.5",
     "redux": "^3.7.2",
-    "styled-components": "^2.4.0"
+    "styled-components": "^2.4.0",
+    "uuid": "^3.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
