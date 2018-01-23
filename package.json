@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chai": "^4.1.2",
     "mdi": "^2.1.19",
     "mdi-react": "^2.1.19",
     "react": "^16.2.0",
@@ -17,7 +18,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "mocha",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "expect": "^22.1.0",
+    "jsdom": "^11.6.0",
+    "mocha": "^5.0.0",
+    "react-addons-test-utils": "^15.6.2"
   }
 }
