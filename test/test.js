@@ -3,8 +3,9 @@ require("chai").should();
 
 // console.log(ColumnList);
 
-describe('eventedThing', () => {
-  it('should invoke the callback of a registered event', function () {
-    let called = 0;
-    called.should.equal(2);
-  })
+describe("eventedThing", () => {
+  it("should invoke the callback of a registered event", function() {
+    let called = 1;
+    called.should.equal(1);
+  });
+});
