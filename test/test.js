@@ -1,10 +1,11 @@
 require("chai").should();
-// let ColumnList = require("./../src/containers/ColumnList.js");
+// const { cardListrender } = require("./../src/containers/functions.js");
 
 // console.log(ColumnList);
 
 describe("eventedThing", () => {
-  it("should invoke the callback of a registered event", function() {
+  it("passing non arrays to cardListrender", function() {
+    // let called = cardListrender(null, div);
     let called = 1;
     called.should.equal(1);
   });

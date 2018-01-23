@@ -3,7 +3,7 @@ import { ColumnListContainer, ListContainer } from "./styled";
 import CardInput from "./CardInput";
 import CardItem from "./CardItem";
 import ListTitle from "./ListTitle";
-import uuid from "uuid/v1";
+import { cardListrender } from "./functions.js";
 
 class ColumnList extends Component {
   constructor(props) {
@@ -12,14 +12,6 @@ class ColumnList extends Component {
       cardList: []
     };
   }
-
-  cardListrender = () => {
-    if (this.state.cardList[0] !== null) {
-      return this.state.cardList.map(cardItem => {
-        return <CardItem key={uuid()}>{cardItem}</CardItem>;
-      });
-    }
-  };
 
   addingToTheCardlist = newCard => {
     this.setState(prevState => {
@@ -33,7 +25,7 @@ class ColumnList extends Component {
       <ColumnListContainer>
         <ListContainer>
           <ListTitle listTitle={this.props.listTitle} />
-          {this.cardListrender()}
+          {cardListrender(this.state.cardList, CardItem)}
           <CardInput addingToTheCardlist={this.addingToTheCardlist} />
         </ListContainer>
       </ColumnListContainer>
