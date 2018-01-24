@@ -21,7 +21,7 @@ class CardInput extends Component {
       case "Input":
         return (
           <CardNameInputBox
-            addingToTheCardlist={this.props.addingToTheCardlist}
+            listTitle={this.props.listTitle}
             onClick={() => {
               this.setState({ toggleInput: "Button" });
             }}
