@@ -4,3 +4,11 @@ export const passListTitle = newTitle => {
     title: newTitle
   };
 };
+
+export const addNewCard = (card, title) => {
+  return {
+    type: "ADDING_NEW_CARD",
+    newCard: card,
+    title: title
+  };
+};

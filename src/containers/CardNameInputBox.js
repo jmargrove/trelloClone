@@ -1,6 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import SquareButton from "./SquareButton";
 import styled from "styled-components";
+import { addNewCard } from "./../actions.js";
+
+const mapDispatchToProps = dispatch => ({
+  addNewcard: card => dispatch(addNewCard(card))
+});
 
 class CardNameInputBox extends Component {
   addingNewCardName = () => {
@@ -53,4 +59,4 @@ const CardItemContainer = styled.div`
   cursor: pointer;
 `;
 
-export default CardNameInputBox;
+export default connect(null, mapDispatchToProps)(CardNameInputBox);
