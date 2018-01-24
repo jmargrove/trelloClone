@@ -6,6 +6,7 @@ export const passListTitle = newTitle => {
 };
 
 export const addNewCard = (card, title) => {
+  console.log(card, title);
   return {
     type: "ADDING_NEW_CARD",
     newCard: card,

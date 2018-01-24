@@ -5,13 +5,17 @@ import styled from "styled-components";
 import { addNewCard } from "./../actions.js";
 
 const mapDispatchToProps = dispatch => ({
-  addNewcard: card => dispatch(addNewCard(card))
+  addNewCard: (card, title) => dispatch(addNewCard(card, title))
 });
 
 class CardNameInputBox extends Component {
   addingNewCardName = () => {
     this.props.onClick();
+    // react store version
     this.props.addingToTheCardlist(this.newCardName.value);
+    // redux version
+    console.log(this.newCardName.value, this.props.listTitle);
+    this.props.addNewCard(this.newCardName.value, this.props.listTitle);
   };
 
   render() {

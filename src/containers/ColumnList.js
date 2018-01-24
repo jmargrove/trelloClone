@@ -26,7 +26,10 @@ class ColumnList extends Component {
         <ListContainer>
           <ListTitle listTitle={this.props.listTitle} />
           {cardListrender(this.state.cardList, CardItem)}
-          <CardInput addingToTheCardlist={this.addingToTheCardlist} />
+          <CardInput
+            listTitle={this.props.listTitle}
+            addingToTheCardlist={this.addingToTheCardlist}
+          />
         </ListContainer>
       </ColumnListContainer>
     );

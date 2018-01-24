@@ -17,7 +17,7 @@ const reducer = (state = defaultState, action) => {
         ...state,
         cards: {
           ...state.cards,
-          [action.title]: action.title.push(action.card)
+          [action.title]: [...state.cards[action.title], action.newCard]
         }
       };
     default:
