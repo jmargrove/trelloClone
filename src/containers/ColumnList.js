@@ -4,6 +4,14 @@ import CardInput from "./CardInput";
 import CardItem from "./CardItem";
 import ListTitle from "./ListTitle";
 import { cardListrender } from "./functions.js";
+import { connect } from "react-redux";
+
+const mapStateToProps = (state, ownProps) => {
+  console.log("the state:::::", state, "own props::::", ownProps);
+  return {
+    cardList: state.cards[ownProps.listTitle]
+  };
+};
 
 class ColumnList extends Component {
   constructor(props) {
@@ -25,7 +33,7 @@ class ColumnList extends Component {
       <ColumnListContainer>
         <ListContainer>
           <ListTitle listTitle={this.props.listTitle} />
-          {cardListrender(this.state.cardList, CardItem)}
+          {cardListrender(this.props.cardList, CardItem)}
           <CardInput
             listTitle={this.props.listTitle}
             addingToTheCardlist={this.addingToTheCardlist}
@@ -36,4 +44,4 @@ class ColumnList extends Component {
   }
 }
 
-export default ColumnList;
+export default connect(mapStateToProps, null)(ColumnList);
