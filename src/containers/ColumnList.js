@@ -10,6 +10,18 @@ const mapStateToProps = (state, ownProps) => ({
   cardList: state.cards[ownProps.listTitle]
 });
 
+const dragSource = {
+  beginDrag(component) {
+    return {
+      item:{
+        id: {
+          component.props.id,
+        }
+      }
+    };
+  }
+};
+
 class ColumnList extends Component {
   render() {
     return (
