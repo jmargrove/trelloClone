@@ -13,7 +13,7 @@ const ListNameContainer = styled.div`
 const Text = styled.p`
   font-family: "Nunito Sans", sans-serif;
   margin: 10px;
-  font-weight: bold;
+  font-weight: 900;
   text-align: left;
   font-size: 15px;
 `;

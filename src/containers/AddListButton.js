@@ -20,7 +20,7 @@ const Text = styled.p`
   font-family: "Nunito Sans", sans-serif;
   margin: 10px;
   color: white;
-  font-weight: bold;
+  font-weight: 900;
   text-align: left;
   font-size: 15px;
 `;

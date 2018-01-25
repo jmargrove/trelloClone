@@ -49,7 +49,7 @@ const ListNameInput = styled.input`
   color: #300c1b;
   overflow: auto;
   margin: 10px;
-  font-weight: bold;
+  font-weight: 900;
 `;
 
 export default connect(null, mapDispatchToProps)(AddListInput);
