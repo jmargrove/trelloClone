@@ -10,20 +10,29 @@ const mapStateToProps = (state, ownProps) => ({
   cardList: state.cards[ownProps.listTitle]
 });
 
-const dragSource = {
-  beginDrag(component) {
+const CardSource = {
+  beginDrag() {
     return {
-      item:{
-        id: {
-          component.props.id,
-        }
-      }
+      id: this.getProps().id
     };
   }
 };
 
-class ColumnList extends Component {
+class ColumnList extends React.Component {
+  static propTypes = {
+    connectDragSource: PropTypes.func.isRequired,
+    isDragging: PropTypes.bool.isRequired,
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+  };
+
   render() {
+    const { title, isDragging, connectDragSource } = this.props;
+    const classNames = classSet({
+      Card: true,
+      "Card--placeholder": isDragging
+    });
+
     return (
       <ColumnListContainer>
         <ListContainer>
