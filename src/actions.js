@@ -13,3 +13,11 @@ export const addNewCard = (card, title) => {
     title: title
   };
 };
+
+export const moveItem = ID => {
+  console.log("the ID!!!! action", ID);
+  return {
+    type: "MOVE_ITEM",
+    id: ID
+  };
+};

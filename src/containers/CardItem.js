@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
-import { DragSource } from "react-dnd";
-import { ItemTypes } from "./Constants";
+import { connect } from "react-redux";
+import { moveItem } from "./../actions";
 
 const CardItemContainer = styled.div`
   margin: 10px;
@@ -20,30 +19,35 @@ const CardItemText = styled.div`
   font-family: "Nunito Sans", sans-serif;
 `;
 
-/// what is the draggable content really
-const cardSource = {
-  beginDrag(props) {
-    text: props.children;
-  }
-};
+const mapDispatchToProps = dispatch => ({
+  moveCard: id => dispatch(moveItem(id))
+});
 
-DragSource(ItemTypes.Card, cardSource, (connect, monitor) => ({
-  connectDragSource: connect.dragSource(),
-  isDragging: monitor.isDragging()
-}))(CardItem);
 class CardItem extends Component {
-  static propTypes = {
-    text: PropTypes.string.isRequired,
-
-    // injected by React dnd,
-    connectDragSource: PropTypes.func.isRequired,
-    isDragging: PropTypes.bool.isRequired
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: false
+    };
+  }
   render() {
-    const { isDragging, connectDragSource, text } = this.props;
-    return connectDragSource(
+    console.log("this is the staet", this.state);
+    return (
       <div style={{ overflow: "auto" }}>
-        <CardItemContainer>
+        <CardItemContainer
+          onClick={() => {
+            console.log("the is", this.props.id);
+            this.props.moveCard(this.props.id);
+            this.setState((prevState, props) => {
+              return {
+                selected: !prevState.selected
+              };
+            });
+          }}
+          style={{
+            backgroundColor: this.state.selected ? "#dfdfdf" : "white"
+          }}
+        >
           <CardItemText>{this.props.children}</CardItemText>
         </CardItemContainer>
       </div>
@@ -51,4 +55,4 @@ class CardItem extends Component {
   }
 }
 
-export default CardItem;
+export default connect(null, mapDispatchToProps)(CardItem);
