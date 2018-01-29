@@ -24,20 +24,27 @@ const reducer = (state = defaultState, action) => {
       if (!state.itemsToSwitch) {
         return { ...state, itemsToSwitch: action.id };
       } else {
+        /// add the card to the correct list
         state.cards[action.id.title].splice(
           action.id.i,
           0,
           state.cards[state.itemsToSwitch.title][state.itemsToSwitch.i]
         );
-        // state.cards[action.id.title].splice(1, 0, "new items");
-        console.log("spliing ", state.cards);
+        // remove the card from the old list
+        const removeCardList = state.cards[state.itemsToSwitch.title].splice(
+          state.itemsToSwitch.i,
+          1
+        );
+        // now return the updated state....
+        // console.log("newcardlist", newCardList);
+        console.log("removeCardList", removeCardList);
+        //
         return {
           ...state,
-          //// put the card in the items to switch above the action.id.title card
-          /// remove card in the state from the list
           cards: {
             ...state.cards,
-            [action.id.title]: [...state.cards[action.id.title]]
+            // [action.id.title]: [...newCardList],
+            [state.itemsToSwitch.title]: [...removeCardList]
           },
           itemsToSwitch: null
         };
