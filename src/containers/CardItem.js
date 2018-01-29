@@ -1,5 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { moveItem } from "./../actions";
 
 const CardItemContainer = styled.div`
   margin: 10px;
@@ -17,14 +19,40 @@ const CardItemText = styled.div`
   font-family: "Nunito Sans", sans-serif;
 `;
 
-const CardItem = props => {
-  return (
-    <div style={{ overflow: "auto" }}>
-      <CardItemContainer>
-        <CardItemText>{props.children}</CardItemText>
-      </CardItemContainer>
-    </div>
-  );
-};
+const mapDispatchToProps = dispatch => ({
+  moveCard: id => dispatch(moveItem(id))
+});
 
-export default CardItem;
+class CardItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: false
+    };
+  }
+  render() {
+    console.log("this is the staet", this.state);
+    return (
+      <div style={{ overflow: "auto" }}>
+        <CardItemContainer
+          onClick={() => {
+            console.log("the is", this.props.id);
+            this.props.moveCard(this.props.id);
+            this.setState((prevState, props) => {
+              return {
+                selected: !prevState.selected
+              };
+            });
+          }}
+          style={{
+            backgroundColor: this.state.selected ? "#dfdfdf" : "white"
+          }}
+        >
+          <CardItemText>{this.props.children}</CardItemText>
+        </CardItemContainer>
+      </div>
+    );
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CardItem);

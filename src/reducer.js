@@ -1,10 +1,11 @@
 const defaultState = {
   listTitles: [],
-  cards: {}
+  cards: {},
+  itemsToSwitch: null
 };
 
 const reducer = (state = defaultState, action) => {
-  console.log(state);
+  console.log("the previous state, 1 setp.......", action);
   switch (action.type) {
     case "ADD_LIST_TITLE":
       return {
@@ -20,6 +21,20 @@ const reducer = (state = defaultState, action) => {
           [action.title]: [...state.cards[action.title], action.newCard]
         }
       };
+    case "MOVE_ITEM":
+      if (!state.itemsToSwitch) {
+
+        return { ...state, itemsToSwitch: action.id };
+      } else {
+        return {
+          ...state,
+          cards: {
+            ...state.cards,
+            [action.title]: [...state.cards[action.title], action.newCard]
+          } 
+          itemsToSwitch: null };
+      }
+
     default:
       return state;
   }
