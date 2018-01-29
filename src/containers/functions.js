@@ -5,7 +5,7 @@ export const cardListrender = (array, Tag, title) => {
   if (array) {
     return array.map((cardItem, i) => {
       return (
-        <Tag id={i + ":::" + title} key={uuid()}>
+        <Tag id={{ i: i, title: title }} key={uuid()}>
           {cardItem}
         </Tag>
       );
