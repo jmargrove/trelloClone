@@ -5,7 +5,6 @@ const defaultState = {
 };
 
 const reducer = (state = defaultState, action) => {
-  console.log("the previous state, 1 setp.......", action);
   switch (action.type) {
     case "ADD_LIST_TITLE":
       return {
@@ -23,16 +22,32 @@ const reducer = (state = defaultState, action) => {
       };
     case "MOVE_ITEM":
       if (!state.itemsToSwitch) {
-
         return { ...state, itemsToSwitch: action.id };
       } else {
+        /// add the card to the correct list
+        state.cards[action.id.title].splice(
+          action.id.i,
+          0,
+          state.cards[state.itemsToSwitch.title][state.itemsToSwitch.i]
+        );
+        // remove the card from the old list
+        const removeCardList = state.cards[state.itemsToSwitch.title].splice(
+          state.itemsToSwitch.i,
+          1
+        );
+        // now return the updated state....
+        // console.log("newcardlist", newCardList);
+        console.log("removeCardList", removeCardList);
+        //
         return {
           ...state,
           cards: {
             ...state.cards,
-            [action.title]: [...state.cards[action.title], action.newCard]
-          } 
-          itemsToSwitch: null };
+            // [action.id.title]: [...newCardList],
+            [state.itemsToSwitch.title]: [...removeCardList]
+          },
+          itemsToSwitch: null
+        };
       }
 
     default:

@@ -6,7 +6,6 @@ export const passListTitle = newTitle => {
 };
 
 export const addNewCard = (card, title) => {
-  console.log(card, title);
   return {
     type: "ADDING_NEW_CARD",
     newCard: card,
@@ -15,7 +14,7 @@ export const addNewCard = (card, title) => {
 };
 
 export const moveItem = ID => {
-  console.log("the ID!!!! action", ID);
+  console.log(ID);
   return {
     type: "MOVE_ITEM",
     id: ID

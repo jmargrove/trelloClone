@@ -31,12 +31,10 @@ class CardItem extends Component {
     };
   }
   render() {
-    console.log("this is the staet", this.state);
     return (
       <div style={{ overflow: "auto" }}>
         <CardItemContainer
           onClick={() => {
-            console.log("the is", this.props.id);
             this.props.moveCard(this.props.id);
             this.setState((prevState, props) => {
               return {
