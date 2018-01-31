@@ -1,3 +1,14 @@
+//// function to switch cards around, returns a new object for the cards
+function switchCards(card1, card2, cards) {
+  const list1 = cards[card1.title]; // list title from
+  const list2 = cards[card2.title]; // list title to
+  const cardToMove = list1.splice(card1.i, 1); // remove the item out of the list
+  list2.splice(card2.i, 0, ...cardToMove); // add the item to the list
+  cards[card1.title] = [...list1]; // use the spread operator to do this
+  cards[card2.title] = [...list2];
+  return cards;
+}
+
 const defaultState = {
   listTitles: [],
   cards: {},
@@ -24,32 +35,15 @@ const reducer = (state = defaultState, action) => {
       if (!state.itemsToSwitch) {
         return { ...state, itemsToSwitch: action.id };
       } else {
-        /// add the card to the correct list
-        state.cards[action.id.title].splice(
-          action.id.i,
-          0,
-          state.cards[state.itemsToSwitch.title][state.itemsToSwitch.i]
+        const newCardState = switchCards(
+          state.itemsToSwitch,
+          action.id,
+          state.cards
         );
-        // remove the card from the old list
-        const removeCardList = state.cards[state.itemsToSwitch.title].splice(
-          state.itemsToSwitch.i,
-          1
-        );
-        // now return the updated state....
-        // console.log("newcardlist", newCardList);
-        console.log("removeCardList", removeCardList);
-        //
-        return {
-          ...state,
-          cards: {
-            ...state.cards,
-            // [action.id.title]: [...newCardList],
-            [state.itemsToSwitch.title]: [...removeCardList]
-          },
-          itemsToSwitch: null
-        };
+        console.log("this is the new card state", newCardState);
+        console.log("the item to switch", state.itemsToSwitch);
+        return { ...state, cards: { ...newCardState }, itemsToSwitch: null };
       }
-
     default:
       return state;
   }
