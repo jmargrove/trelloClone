@@ -14,7 +14,6 @@ const mapStateToProps = (state, ownProps) => ({
 
 class ColumnList extends Component {
   render() {
-    console.log("this is the props in column list", this.props);
     return (
       <Draggable draggableId={this.props.listTitle} index={this.props.i}>
         {(provided, snapshot) => (
