@@ -15,24 +15,14 @@ const mapStateToProps = state => ({
 });
 
 class ColumnContainer extends Component {
-  // onDragStart = result => {};
-
   onDragEnd = result => {
-    console.log("onDragEnd", this.props);
     this.props.reorderCols(result);
   };
 
   render() {
     return (
-      <DragDropContext
-        onDragStart={this.onDragStart}
-        onDragEnd={this.onDragEnd}
-      >
-        <Droppable
-          droppableId="droppable"
-          direction="horizontal"
-          ignoreContainerClipping={false}
-        >
+      <DragDropContext onDragEnd={this.onDragEnd}>
+        <Droppable droppableId="droppable" direction="horizontal">
           {(provided, snapshot) => (
             <div ref={provided.innerRef} className="ColumnContainer">
               {this.props.listTitles.map((title, i) => (

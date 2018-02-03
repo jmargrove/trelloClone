@@ -21,14 +21,6 @@ export const moveItem = ID => {
   };
 };
 
-export const selectCol = i => {
-  console.log("i-th", i);
-  return {
-    type: "SWITCH_COL",
-    i: i
-  };
-};
-
 export const reorderCols = obj => {
   console.log(obj);
   return {
