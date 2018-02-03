@@ -3,6 +3,8 @@ import ColumnList from "./ColumnList.js";
 import AddList from "./AddList.js";
 import { connect } from "react-redux";
 import uuid from "uuid/v1";
+import HTML5Backend from "react-dnd-html5-backend";
+import { DragDropContext } from "react-dnd";
 
 const mapStateToProps = state => ({
   listTitles: state.listTitles
@@ -21,4 +23,4 @@ class ColumnContainer extends Component {
   }
 }
 
-export default connect(mapStateToProps, null)(ColumnContainer);
+export default DragDropContext(HTML5Backend)(ColumnContainer); //connect(mapStateToProps, null)(ColumnContainer);
