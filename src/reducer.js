@@ -9,6 +9,12 @@ function switchCards(card1, card2, cards) {
   return cards;
 }
 
+function switchCol(col1, col2, colTitles) {
+  const colNameToMove = colTitles.splice(col1, 1); // remove the col list
+  colTitles.splice(col2, 0, colNameToMove);
+  return [...colTitles];
+}
+
 const defaultState = {
   listTitles: ["backlog", "to do", "doing", "done"],
   cards: {
@@ -18,7 +24,7 @@ const defaultState = {
     done: []
   },
   itemsToSwitch: null,
-  listToSwitch: null
+  colToSwitch: null
 };
 
 const reducer = (state = defaultState, action) => {
@@ -46,9 +52,17 @@ const reducer = (state = defaultState, action) => {
           action.id,
           state.cards
         );
-        console.log("this is the new card state", newCardState);
-        console.log("the item to switch", state.itemsToSwitch);
         return { ...state, cards: { ...newCardState }, itemsToSwitch: null };
+      }
+    case "SWITCH_COL":
+      if (!state.colToSwitch) {
+        return { ...state, colToSwitch: action.i };
+      } else {
+        return {
+          ...state,
+          listTitles: switchCol(state.colToSwitch, action.i, state.listTitles),
+          colToSwitch: null
+        };
       }
     default:
       return state;

@@ -20,3 +20,11 @@ export const moveItem = ID => {
     id: ID
   };
 };
+
+export const selectCol = i => {
+  console.log("i-th", i);
+  return {
+    type: "SWITCH_COL",
+    i: i
+  };
+};

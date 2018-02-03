@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { selectCol } from "./../actions";
+
+const mapDispatchToProps = dispatch => ({
+  selectCol: colNumber => dispatch(selectCol(colNumber))
+});
+
 const ListNameContainer = styled.div`
   border-radius: 5px;
   background-color: rgba(121, 165, 234, 0.5);
@@ -34,10 +40,12 @@ class ListTitle extends Component {
             ? "rgba(121, 165, 234, 0.1)"
             : "rgba(121, 165, 234, 0.5)"
         }}
-        onClick={() =>
+        onClick={() => {
+          this.props.selectCol(this.props.i);
           this.setState(prevState => {
             return { selectCol: !prevState.selectCol };
-          })}
+          });
+        }}
       >
         <Text>{this.props.listTitle}</Text>
       </ListNameContainer>
@@ -45,4 +53,4 @@ class ListTitle extends Component {
   }
 }
 
-export default ListTitle;
+export default connect(null, mapDispatchToProps)(ListTitle);
