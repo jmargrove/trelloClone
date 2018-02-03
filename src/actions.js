@@ -28,3 +28,11 @@ export const selectCol = i => {
     i: i
   };
 };
+
+export const reorderCols = obj => {
+  console.log(obj);
+  return {
+    type: "REORDER_COLS",
+    obj: obj
+  };
+};

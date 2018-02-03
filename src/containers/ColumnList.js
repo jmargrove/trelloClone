@@ -16,7 +16,7 @@ class ColumnList extends Component {
   render() {
     console.log("this is the props in column list", this.props);
     return (
-      <Draggable draggableId={this.props.listTitle}>
+      <Draggable draggableId={this.props.listTitle} index={this.props.i}>
         {(provided, snapshot) => (
           <div>
             <div
@@ -39,6 +39,7 @@ class ColumnList extends Component {
                 </ListContainer>
               </ColumnListContainer>
             </div>
+            {provided.placeholder}
           </div>
         )}
       </Draggable>
@@ -47,47 +48,3 @@ class ColumnList extends Component {
 }
 
 export default connect(mapStateToProps, null)(ColumnList);
-
-// render() {
-//   console.log("dragging...", this);
-//   return (
-//     <Droppable droppableID={this.props.title} type="COLUMN">
-//       {(provided, snapshot) => (
-//         <div ref={provided.innerRef}>
-//           <ColumnListContainer>
-//             <Draggable
-//               draggableId={this.props.listTitle}
-//               type="COLUMN"
-//               index={0}
-//             >
-//               {(provided, snapshot) => (
-//                 <div>
-//                   <div
-//                     ref={provided.innerRef}
-//                     {...provided.draggableProps}
-//                     {...provided.dragHandleProps}
-//                   >
-//                     <ColumnListContainer>
-//                       <ListContainer>
-//                         <ListTitle
-//                           i={this.props.i}
-//                           listTitle={this.props.listTitle}
-//                         />
-//                         {cardListrender(
-//                           this.props.cardList,
-//                           CardItem,
-//                           this.props.listTitle
-//                         )}
-//                         <CardInput listTitle={this.props.listTitle} />
-//                       </ListContainer>
-//                     </ColumnListContainer>
-//                   </div>
-//                 </div>
-//               )}
-//             </Draggable>
-//           </ColumnListContainer>
-//         </div>
-//       )}
-//     </Droppable>
-//   );
-// }

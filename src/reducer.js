@@ -16,10 +16,11 @@ function switchCol(col1, col2, colTitles) {
 }
 
 const defaultState = {
-  listTitles: ["backlog", "to do"],
+  listTitles: ["backlog", "to do", "doing", "done"],
   cards: {
     backlog: ["writting", "the thesis"],
-    "to do": ["working on app"]
+    "to do": ["working on app"],
+    doing: ["list", "item"]
   },
   itemsToSwitch: null,
   colToSwitch: null
@@ -52,16 +53,21 @@ const reducer = (state = defaultState, action) => {
         );
         return { ...state, cards: { ...newCardState }, itemsToSwitch: null };
       }
-    case "SWITCH_COL":
-      if (!state.colToSwitch) {
-        return { ...state, colToSwitch: action.i };
+    case "REORDER_COLS":
+      if (action.obj.source === null || action.obj.destination === null) {
+        return state;
       } else {
         return {
           ...state,
-          listTitles: switchCol(state.colToSwitch, action.i, state.listTitles),
+          listTitles: switchCol(
+            action.obj.source.index,
+            action.obj.destination.index,
+            state.listTitles
+          ),
           colToSwitch: null
         };
       }
+
     default:
       return state;
   }
