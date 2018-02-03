@@ -11,7 +11,6 @@ const mapDispatchToProps = dispatch => ({
 class CardNameInputBox extends Component {
   addingNewCardName = () => {
     this.props.onClick();
-    // react store version
     this.props.addNewCard(this.newCardName.value, this.props.listTitle);
   };
 
