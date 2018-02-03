@@ -11,8 +11,7 @@ const ListContainer = styled.div`
 const ColumnListContainer = styled.div`
   margin-top: 10px;
   width: 270px;
-  height: 800px;
-  background-color: transparent;
+  height: 700px;
   margin-left: 5px;
   margin-right: 5px;
 `;

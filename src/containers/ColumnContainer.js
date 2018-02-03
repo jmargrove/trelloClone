@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import ColumnList from "./ColumnList.js";
 import AddList from "./AddList.js";
 import { connect } from "react-redux";
-import uuid from "uuid/v1";
-import HTML5Backend from "react-dnd-html5-backend";
-import { DragDropContext } from "react-dnd";
+import { Droppable } from "react-beautiful-dnd";
 
 const mapStateToProps = state => ({
   listTitles: state.listTitles
@@ -13,14 +11,22 @@ const mapStateToProps = state => ({
 class ColumnContainer extends Component {
   render() {
     return (
-      <div className="ColumnContainer">
-        {this.props.listTitles.map((title, i) => (
-          <ColumnList key={uuid()} listTitle={title} i={i} />
-        ))}
-        <AddList />
-      </div>
+      <Droppable
+        droppableId="droppable"
+        direction="horizontal"
+        ignoreContainerClipping={false}
+      >
+        {(provided, snapshot) => (
+          <div ref={provided.innerRef} className="ColumnContainer">
+            {this.props.listTitles.map((title, i) => (
+              <ColumnList key={i} listTitle={title} i={i} />
+            ))}
+            <AddList />
+          </div>
+        )}
+      </Droppable>
     );
   }
 }
 
-export default DragDropContext(HTML5Backend)(ColumnContainer); //connect(mapStateToProps, null)(ColumnContainer);
+export default connect(mapStateToProps, null)(ColumnContainer);

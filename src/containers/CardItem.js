@@ -2,22 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { moveItem } from "./../actions";
-import { DragSource } from "react-dnd";
-import { ItemTypes } from "./../Constants";
-import PropTypes from "prop-types";
-
-const cardSource = {
-  beginDrag(props) {
-    return {};
-  }
-};
-
-function collect(connect, monitor) {
-  return {
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
-  };
-}
 
 const CardItemContainer = styled.div`
   margin: 10px;
@@ -47,8 +31,7 @@ class CardItem extends Component {
     };
   }
   render() {
-    const { connectDragSource, isDragging } = this.props;
-    return connectDragSource(
+    return (
       <div style={{ overflow: "auto" }}>
         <CardItemContainer
           onClick={() => {
@@ -70,11 +53,4 @@ class CardItem extends Component {
   }
 }
 
-CardItem.propTypes = {
-  connectDragSource: PropTypes.func.isRequired,
-  isDragging: PropTypes.bool.isRequired
-};
-
-export default DragSource(ItemTypes.CARD, cardSource, collect)(CardItem);
-
-//connect(null, mapDispatchToProps)
+export default connect(null, mapDispatchToProps)(CardItem);

@@ -16,12 +16,10 @@ function switchCol(col1, col2, colTitles) {
 }
 
 const defaultState = {
-  listTitles: ["backlog", "to do", "doing", "done"],
+  listTitles: ["backlog", "to do"],
   cards: {
     backlog: ["writting", "the thesis"],
-    "to do": ["working on app"],
-    doing: ["trello clone"],
-    done: []
+    "to do": ["working on app"]
   },
   itemsToSwitch: null,
   colToSwitch: null

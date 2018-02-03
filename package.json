@@ -7,6 +7,7 @@
     "mdi": "^2.1.19",
     "mdi-react": "^2.1.19",
     "react": "^16.2.0",
+    "react-beautiful-dnd": "^4.0.1",
     "react-dnd": "^2.5.4",
     "react-dnd-html5-backend": "^2.5.4",
     "react-dom": "^16.2.0",
