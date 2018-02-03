@@ -15,7 +15,7 @@ class ColumnList extends React.Component {
     return (
       <ColumnListContainer>
         <ListContainer>
-          <ListTitle listTitle={this.props.listTitle} />
+          <ListTitle i={this.props.i} listTitle={this.props.listTitle} />
           {cardListrender(this.props.cardList, CardItem, this.props.listTitle)}
           <CardInput listTitle={this.props.listTitle} />
         </ListContainer>

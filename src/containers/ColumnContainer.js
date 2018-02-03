@@ -12,8 +12,8 @@ class ColumnContainer extends Component {
   render() {
     return (
       <div className="ColumnContainer">
-        {this.props.listTitles.map(title => (
-          <ColumnList key={uuid()} listTitle={title} />
+        {this.props.listTitles.map((title, i) => (
+          <ColumnList key={uuid()} listTitle={title} i={i} />
         ))}
         <AddList />
       </div>

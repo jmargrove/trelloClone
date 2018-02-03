@@ -10,9 +10,15 @@ function switchCards(card1, card2, cards) {
 }
 
 const defaultState = {
-  listTitles: [],
-  cards: {},
-  itemsToSwitch: null
+  listTitles: ["backlog", "to do", "doing", "done"],
+  cards: {
+    backlog: ["writting", "the thesis"],
+    "to do": ["working on app"],
+    doing: ["trello clone"],
+    done: []
+  },
+  itemsToSwitch: null,
+  listToSwitch: null
 };
 
 const reducer = (state = defaultState, action) => {

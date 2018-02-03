@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
+import { connect } from "react-redux";
 const ListNameContainer = styled.div`
   border-radius: 5px;
   background-color: rgba(121, 165, 234, 0.5);
@@ -19,9 +19,26 @@ const Text = styled.p`
 `;
 
 class ListTitle extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectCol: false
+    };
+  }
   render() {
     return (
-      <ListNameContainer>
+      <ListNameContainer
+        ref={el => (this.i = el)}
+        style={{
+          backgroundColor: this.state.selectCol
+            ? "rgba(121, 165, 234, 0.1)"
+            : "rgba(121, 165, 234, 0.5)"
+        }}
+        onClick={() =>
+          this.setState(prevState => {
+            return { selectCol: !prevState.selectCol };
+          })}
+      >
         <Text>{this.props.listTitle}</Text>
       </ListNameContainer>
     );
