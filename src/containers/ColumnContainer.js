@@ -7,6 +7,7 @@ import { reorderCols } from "./../actions";
 import styled from "styled-components";
 import type { DroppableProvided } from "react-beautiful-dnd";
 import { moveItem } from "./../actions";
+
 const Container = styled.div`
   padding: 10px;
   width: 100vw;

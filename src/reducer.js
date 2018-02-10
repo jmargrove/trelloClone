@@ -1,13 +1,14 @@
 //// function to switch cards around, returns a new object for the cards
-function switchCards(card1, card2, cards) {
-  console.log(card1, card2);
-  const list1 = cards[card1.title]; // list title from
-  const list2 = cards[card2.title]; // list title to
-  const cardToMove = list1.splice(card1.i, 1); // remove the item out of the list
-  list2.splice(card2.i, 0, ...cardToMove); // add the item to the list
-  cards[card1.title] = [...list1]; // use the spread operator to do this
-  cards[card2.title] = [...list2];
-  return cards;
+function switchCards(card1: array, card2: array, cards) {
+  if (card1.title || card2.title) {
+    const list1 = cards[card1.title]; // list title from
+    const list2 = cards[card2.title]; // list title to
+    const cardToMove = list1.splice(card1.i, 1); // remove the item out of the list
+    list2.splice(card2.i, 0, ...cardToMove); // add the item to the list
+    cards[card1.title] = [...list1]; // use the spread operator to do this
+    cards[card2.title] = [...list2];
+    return cards;
+  }
 }
 
 function switchCol(col1, col2, colTitles) {
@@ -44,15 +45,18 @@ const reducer = (state = defaultState, action) => {
         }
       };
     case "MOVE_ITEM":
-      const newCardState = switchCards(
-        { title: action.obj.source.droppableId, i: action.obj.source.index },
-        {
-          title: action.obj.destination.droppableId,
-          i: action.obj.destination.index
-        },
-        state.cards
-      );
-      return { ...state, cards: { ...newCardState }, itemsToSwitch: null };
+      if (action.obj.source && action.obj.destination) {
+        const newCardState = switchCards(
+          { title: action.obj.source.droppableId, i: action.obj.source.index },
+          {
+            title: action.obj.destination.droppableId,
+            i: action.obj.destination.index
+          },
+          state.cards
+        );
+
+        return { ...state, cards: { ...newCardState }, itemsToSwitch: null };
+      }
 
     case "REORDER_COLS":
       if (action.obj.source === null || action.obj.destination === null) {
