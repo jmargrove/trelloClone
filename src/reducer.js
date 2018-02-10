@@ -1,5 +1,6 @@
 //// function to switch cards around, returns a new object for the cards
 function switchCards(card1, card2, cards) {
+  console.log(card1, card2);
   const list1 = cards[card1.title]; // list title from
   const list2 = cards[card2.title]; // list title to
   const cardToMove = list1.splice(card1.i, 1); // remove the item out of the list
@@ -18,7 +19,7 @@ function switchCol(col1, col2, colTitles) {
 const defaultState = {
   listTitles: ["backlog", "to do", "doing", "done"],
   cards: {
-    backlog: ["writting", "the thesis"],
+    backlog: ["writting", "the thesis", "blah", "next", "runnin'"],
     "to do": ["working on app"],
     doing: ["list", "item"]
   },
@@ -43,16 +44,16 @@ const reducer = (state = defaultState, action) => {
         }
       };
     case "MOVE_ITEM":
-      if (!state.itemsToSwitch) {
-        return { ...state, itemsToSwitch: action.id };
-      } else {
-        const newCardState = switchCards(
-          state.itemsToSwitch,
-          action.id,
-          state.cards
-        );
-        return { ...state, cards: { ...newCardState }, itemsToSwitch: null };
-      }
+      const newCardState = switchCards(
+        { title: action.obj.source.droppableId, i: action.obj.source.index },
+        {
+          title: action.obj.destination.droppableId,
+          i: action.obj.destination.index
+        },
+        state.cards
+      );
+      return { ...state, cards: { ...newCardState }, itemsToSwitch: null };
+
     case "REORDER_COLS":
       if (action.obj.source === null || action.obj.destination === null) {
         return state;

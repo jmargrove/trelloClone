@@ -13,16 +13,15 @@ export const addNewCard = (card, title) => {
   };
 };
 
-export const moveItem = ID => {
-  console.log(ID);
+export const moveItem = obj => {
+  console.log("movinhg the itmes around");
   return {
     type: "MOVE_ITEM",
-    id: ID
+    obj: obj
   };
 };
 
 export const reorderCols = obj => {
-  console.log(obj);
   return {
     type: "REORDER_COLS",
     obj: obj

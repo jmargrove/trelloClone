@@ -1,11 +1,10 @@
 import React from "react";
 
-export const cardListrender = (array, Tag, title) => {
-  const uuid = require("uuid/v1");
+export const cardListrender = (array: array, Tag, title: string) => {
   if (array) {
-    return array.map((cardItem, i) => {
+    return array.map((cardItem: string, i: number) => {
       return (
-        <Tag id={{ i: i, title: title }} key={uuid()}>
+        <Tag i={i} key={i} id={{ i: i, title: title }}>
           {cardItem}
         </Tag>
       );
