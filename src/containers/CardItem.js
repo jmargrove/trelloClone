@@ -2,8 +2,13 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { moveItem } from "./../actions";
+import { Draggable } from "react-beautiful-dnd";
+import type {
+  DraggableProvided,
+  DraggableStateSnapshot
+} from "react-beautiful-dnd";
 
-const CardItemContainer = styled.div`
+const Container = styled.div`
   margin: 10px;
   padding: 10px;
   margin-top: 0;
@@ -12,6 +17,9 @@ const CardItemContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   cursor: pointer;
+  &:hover {
+    background-color: rgba(160, 234, 222, 0.95);
+  }
 `;
 
 const CardItemText = styled.div`
@@ -19,36 +27,35 @@ const CardItemText = styled.div`
   font-family: "Nunito Sans", sans-serif;
 `;
 
+const Wrapper = styled.div``;
+const Tube = styled.div``;
+
 const mapDispatchToProps = dispatch => ({
   moveCard: id => dispatch(moveItem(id))
 });
 
 class CardItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: false
-    };
-  }
   render() {
+    const id = this.props.id;
     return (
-      <div style={{ overflow: "auto" }}>
-        <CardItemContainer
-          onClick={() => {
-            this.props.moveCard(this.props.id);
-            this.setState((prevState, props) => {
-              return {
-                selected: !prevState.selected
-              };
-            });
-          }}
-          style={{
-            backgroundColor: this.state.selected ? "#dfdfdf" : "white"
-          }}
-        >
-          <CardItemText>{this.props.children}</CardItemText>
-        </CardItemContainer>
-      </div>
+      <Draggable draggableId={id.title + id.i} index={id.i} type="CARDS">
+        {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
+          <Wrapper>
+            <Container
+              innerRef={provided.innerRef}
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+            >
+              <Tube isDragging={snapshot.isDragging}>
+                <CardItemText isDragging={snapshot.isDragging}>
+                  {this.props.children}
+                </CardItemText>
+              </Tube>
+            </Container>
+            {provided.placeholder}
+          </Wrapper>
+        )}
+      </Draggable>
     );
   }
 }

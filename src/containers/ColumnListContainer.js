@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const Column = styled.div`
+const ColumnListContainer = styled.div`
   margin-top: 10px;
   width: 270px;
   margin-left: 5px;

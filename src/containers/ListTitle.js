@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const ListNameContainer = styled.div`
+const Header = styled.div`
   border-radius: 5px;
   background-color: rgba(121, 165, 234, 0.5);
   height: 40px;
@@ -10,7 +10,7 @@ const ListNameContainer = styled.div`
   cursor: pointer;
 `;
 
-const Text = styled.p`
+const Title = styled.p`
   font-family: "Nunito Sans", sans-serif;
   margin: 10px;
   font-weight: 900;
@@ -20,10 +20,11 @@ const Text = styled.p`
 
 class ListTitle extends Component {
   render() {
+    const title = this.props.children;
     return (
-      <ListNameContainer>
-        <Text>{this.props.listTitle}</Text>
-      </ListNameContainer>
+      <Header>
+        <Title>{title}</Title>
+      </Header>
     );
   }
 }
