@@ -14,6 +14,10 @@ class CardNameInputBox extends Component {
     this.props.addNewCard(this.newCardName.value, this.props.listTitle);
   };
 
+  closingInputBox = () => {
+    this.props.closeInputBox();
+  };
+
   render() {
     return (
       <div style={{ overflow: "auto" }}>
@@ -26,11 +30,20 @@ class CardNameInputBox extends Component {
             placeholder="Add card name..."
           />
         </CardItemContainer>
-        <SquareButton
-          onClick={() => {
-            this.addingNewCardName();
-          }}
-        />
+        <div style={{ display: "flex", flexDirection: "rows" }}>
+          <SquareButton
+            closeToggle={false}
+            onClick={() => {
+              this.addingNewCardName();
+            }}
+          />
+          <SquareButton
+            closeToggle={true}
+            onClick={() => {
+              this.closingInputBox();
+            }}
+          />
+        </div>
       </div>
     );
   }

@@ -25,6 +25,9 @@ class CardInput extends Component {
             onClick={() => {
               this.setState({ toggleInput: "Button" });
             }}
+            closeInputBox={() => {
+              this.setState({ toggleInput: "Button" });
+            }}
           />
         );
       default:
