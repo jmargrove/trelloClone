@@ -19,12 +19,22 @@ class AddListInput extends Component {
             placeholder="Add a list..."
           />
         </ListNameContainer>
-        <SquareButton
-          onClick={() => {
-            this.props.passListTitle(this.input.value);
-            this.props.onClick();
-          }}
-        />
+        <div style={{ display: "flex", flexDirection: "rows" }}>
+          <SquareButton
+            closeToggle={false}
+            onClick={() => {
+              this.props.passListTitle(this.input.value);
+              this.props.onClick();
+            }}
+          />
+          <SquareButton
+            closeToggle={true}
+            onClick={() => {
+              // this.props.passListTitle(this.input.value);
+              this.props.onClick();
+            }}
+          />
+        </div>
       </div>
     );
   }
