@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import CheckCircleOutlineIcon from "mdi-react/CheckCircleOutlineIcon";
-
+import CloseIcon from "mdi-react/CloseIcon";
 const InputListButtonContainer = styled.div`
   width: 35px;
   height: 35px;
@@ -24,12 +24,14 @@ const InputListButtonContainer = styled.div`
   }
 `;
 
-const SquareButton = props => {
-  return (
-    <InputListButtonContainer onClick={props.onClick}>
-      <CheckCircleOutlineIcon />
-    </InputListButtonContainer>
-  );
-};
+class SquareButton extends Component {
+  render() {
+    return (
+      <InputListButtonContainer onClick={this.props.onClick}>
+        {this.props.closeToggle ? <CloseIcon /> : <CheckCircleOutlineIcon />}
+      </InputListButtonContainer>
+    );
+  }
+}
 
 export default SquareButton;

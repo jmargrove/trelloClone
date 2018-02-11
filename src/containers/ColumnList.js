@@ -76,6 +76,7 @@ class ColumnList extends Component {
           {(provided: DraggableProvided) => (
             <ListContainer innerRef={provided.innerRef}>
               {mapCards(cards)}
+              {provided.placeholder}
             </ListContainer>
           )}
         </Droppable>
