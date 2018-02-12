@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { addNewCard } from "./../actions.js";
 
 const mapDispatchToProps = dispatch => ({
-  addNewCard: (card, title) => dispatch(addNewCard(card, title))
+  addNewCard: (card: string, title: string) => dispatch(addNewCard(card, title))
 });
 
 class CardNameInputBox extends Component {

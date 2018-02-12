@@ -10,7 +10,7 @@ class CardInput extends Component {
     };
   }
 
-  switchHandler() {
+  switchHandler = () => {
     switch (this.state.toggleInput) {
       case "Button":
         return (
@@ -33,7 +33,7 @@ class CardInput extends Component {
       default:
         return null;
     }
-  }
+  };
 
   render() {
     return <div>{this.switchHandler()}</div>;

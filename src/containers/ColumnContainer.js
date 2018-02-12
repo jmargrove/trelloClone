@@ -18,8 +18,8 @@ const Container = styled.div`
 `;
 
 const mapDispatchToProps = dispatch => ({
-  reorderCols: obj => dispatch(reorderCols(obj)),
-  moveItem: obj => dispatch(moveItem(obj))
+  reorderCols: (obj: object) => dispatch(reorderCols(obj)),
+  moveItem: (obj: object) => dispatch(moveItem(obj))
 });
 
 const mapStateToProps = state => ({

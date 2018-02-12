@@ -48,15 +48,15 @@ const Title = styled.p`
 
 const ListContainer = styled.div``;
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state: object, ownProps: object) => ({
   cardList: state.cards[ownProps.listTitle]
 });
 
 class ColumnList extends Component {
   render() {
-    const mapCards = listOfCards => {
+    const mapCards = (listOfCards: array) => {
       if (listOfCards) {
-        return listOfCards.map((card, i: number) => {
+        return listOfCards.map((card: string, i: number) => {
           return (
             <CardItem i={i} key={i} id={{ i: i, title: title }}>
               {card}
@@ -75,7 +75,7 @@ class ColumnList extends Component {
         <Droppable droppableId={title} type="CARDS">
           {(provided: DraggableProvided) => (
             <ListContainer innerRef={provided.innerRef}>
-              {mapCards(cards)}
+              {mapCards((cards: array))}
               {provided.placeholder}
             </ListContainer>
           )}
