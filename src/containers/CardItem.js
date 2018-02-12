@@ -31,7 +31,7 @@ const Wrapper = styled.div``;
 const Tube = styled.div``;
 
 const mapDispatchToProps = dispatch => ({
-  moveCard: id => dispatch(moveItem(id))
+  moveCard: (id: object) => dispatch(moveItem(id))
 });
 
 class CardItem extends Component {

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { passListTitle } from "../actions";
 
 const mapDispatchToProps = dispatch => ({
-  passListTitle: listTitle => dispatch(passListTitle(listTitle))
+  passListTitle: (listTitle: string) => dispatch(passListTitle(listTitle))
 });
 
 class AddListInput extends Component {
