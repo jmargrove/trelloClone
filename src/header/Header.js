@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import BoardSelect from "./BoardSelect";
 import Search from "./Search";
+import PlusIcon from "mdi-react/PlusIcon";
+import AlarmIcon from "mdi-react/AlarmIcon";
+import InformationOutlineIcon from "mdi-react/InformationOutlineIcon";
 import {
   Container,
   CloneLogoBar,
@@ -37,10 +40,18 @@ class Header extends Component {
         </Wrapper>
         <Wrapper style={{ flex: 1, justifyContent: "flex-end" }}>
           <Wrapper style={{ width: "160px" }}>
-            <Container style={{ width: "30px" }} />
-            <Container style={{ width: "30px" }} />
-            <Container style={{ width: "30px" }} />
-            <Container style={{ width: "30px", borderRadius: "15px" }} />
+            <Container style={{ width: "30px" }}>
+              <PlusIcon />
+            </Container>
+            <Container style={{ width: "30px" }}>
+              <InformationOutlineIcon />
+            </Container>
+            <Container style={{ width: "30px" }}>
+              <AlarmIcon />
+            </Container>
+            <Container style={{ width: "30px", borderRadius: "15px" }}>
+              <p>JM</p>
+            </Container>
           </Wrapper>
         </Wrapper>
       </HeaderBanner>
