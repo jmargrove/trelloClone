@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "./containers/Header.js";
+import Header from "./header/Header.js";
 import ProjectTitleBar from "./containers/ProjectTitleBar.js";
 import ColumnContainer from "./containers/ColumnContainer.js";
 

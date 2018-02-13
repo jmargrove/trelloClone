@@ -18,7 +18,7 @@ function switchCol(col1, col2, colTitles) {
 }
 
 const defaultState = {
-  listTitles: ["backlog", "to do", "doing", "done"],
+  listTitles: ["backlog", "to do", "doing"],
   cards: {
     backlog: ["writting", "the thesis", "blah", "next", "runnin'"],
     "to do": ["working on app"],

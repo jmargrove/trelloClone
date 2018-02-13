@@ -27,8 +27,15 @@ const InputListButtonContainer = styled.div`
 class SquareButton extends Component {
   render() {
     return (
-      <InputListButtonContainer onClick={this.props.onClick}>
-        {this.props.closeToggle ? <CloseIcon /> : <CheckCircleOutlineIcon />}
+      <InputListButtonContainer
+        onClick={this.props.onClick}
+        style={{ ...this.props.style }}
+      >
+        {this.props.closeToggle ? (
+          <CloseIcon style={{ ...this.props.style }} />
+        ) : (
+          <CheckCircleOutlineIcon />
+        )}
       </InputListButtonContainer>
     );
   }
