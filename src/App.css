@@ -99,3 +99,35 @@ h1 {
   display: flex;
   flex-direction: row;
 }
+
+@keyframes expand {
+  from {
+    width: 180px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  to {
+    width: 280px;
+    background-color: "white";
+  }
+}
+
+.inputAnimate {
+  animation-name: expand;
+  animation-duration: 0.333s;
+}
+
+@keyframes retract {
+  from {
+    width: 280px;
+    background-color: "white";
+  }
+  to {
+    width: 180px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.inputRetract {
+  animation-name: retract;
+  animation-duration: 0.333s;
+}
