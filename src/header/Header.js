@@ -24,43 +24,40 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.toggleSearch ? <SearchPopUp /> : null}
-        <HeaderBanner>
-          <Wrapper style={{ flex: 1, justifyContent: "flex-start" }}>
-            <Wrapper style={{ justifyContent: "flex-start" }}>
-              <BoardSelect style={{ marginLeft: "10px" }} />
-              <Search style={{ marginLeft: "10px" }} />
-            </Wrapper>
+      <HeaderBanner>
+        <Wrapper style={{ flex: 1, justifyContent: "flex-start" }}>
+          <Wrapper style={{ justifyContent: "flex-start" }}>
+            <BoardSelect style={{ marginLeft: "10px" }} />
+            <Search style={{ marginLeft: "10px" }} />
           </Wrapper>
-          <Wrapper style={{ alignSelf: "center", flex: 0.2 }}>
-            <CloneLogo className="cloneLogo">
-              <CloneLogoBar />
-              <CloneLogoBar style={{ height: "20px" }} />
-              <CloneLogoBar style={{ height: "10px" }} />
-            </CloneLogo>
-            <h1> trelloClone</h1>
+        </Wrapper>
+        <Wrapper style={{ alignSelf: "center", flex: 0.2 }}>
+          <CloneLogo className="cloneLogo">
+            <CloneLogoBar />
+            <CloneLogoBar style={{ height: "20px" }} />
+            <CloneLogoBar style={{ height: "10px" }} />
+          </CloneLogo>
+          <h1> trelloClone</h1>
+        </Wrapper>
+        <Wrapper style={{ flex: 1, justifyContent: "flex-end" }}>
+          <Wrapper style={{ width: "160px" }}>
+            <Container style={{ width: "30px" }}>
+              <PlusIcon style={{ width: "20px", height: "20px" }} />
+            </Container>
+            <Container style={{ width: "30px" }}>
+              <InformationOutlineIcon
+                style={{ width: "20px", height: "20px" }}
+              />
+            </Container>
+            <Container style={{ width: "30px" }}>
+              <AlarmIcon style={{ width: "20px", height: "20px" }} />
+            </Container>
+            <Container style={{ width: "30px", borderRadius: "15px" }}>
+              <p>JM</p>
+            </Container>
           </Wrapper>
-          <Wrapper style={{ flex: 1, justifyContent: "flex-end" }}>
-            <Wrapper style={{ width: "160px" }}>
-              <Container style={{ width: "30px" }}>
-                <PlusIcon style={{ width: "20px", height: "20px" }} />
-              </Container>
-              <Container style={{ width: "30px" }}>
-                <InformationOutlineIcon
-                  style={{ width: "20px", height: "20px" }}
-                />
-              </Container>
-              <Container style={{ width: "30px" }}>
-                <AlarmIcon style={{ width: "20px", height: "20px" }} />
-              </Container>
-              <Container style={{ width: "30px", borderRadius: "15px" }}>
-                <p>JM</p>
-              </Container>
-            </Wrapper>
-          </Wrapper>
-        </HeaderBanner>
-      </div>
+        </Wrapper>
+      </HeaderBanner>
     );
   }
 }

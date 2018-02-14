@@ -5,6 +5,7 @@ import OpenInNewIcon from "mdi-react/OpenInNewIcon";
 import { Container } from "./StyledComponents.js";
 import SquareButton from "./../containers/SquareButton";
 import CloseIcon from "mdi-react/CloseIcon";
+import SearchPopUp from "./SearchPopUp";
 
 const Input = styled.input`
   display: block;
@@ -27,7 +28,7 @@ class Search extends Component {
   }
   toggleSearch = () => {
     switch (this.state.toggleSearch) {
-      case "Expand":
+      case true:
         return (
           <Container
             className="inputAnimate"
@@ -38,6 +39,7 @@ class Search extends Component {
             }}
           >
             <Input
+              refs={el => (this.searchTerm = el)}
               autoFocus={true}
               style={{ marginLeft: "10px" }}
               className="inputAnimate"
@@ -47,29 +49,10 @@ class Search extends Component {
               style={{ marginRight: "5px" }}
               onClick={() => {
                 this.setState(prevState => {
-                  return { toggleSearch: "Retract" };
+                  return { toggleSearch: !prevState.toggleSearch };
                 });
               }}
             />
-          </Container>
-        );
-      case "Retract":
-        return (
-          <Container
-            className="inputRetract"
-            onClick={() => {
-              this.setState(prevState => {
-                return { toggleSearch: !prevState.toggleSearch };
-              });
-            }}
-            style={{
-              width: "180px",
-              justifyContent: "flex-end",
-              cursor: "text",
-              ...this.props.style
-            }}
-          >
-            <MagnifyIcon style={{ marginRight: "10px", color: "white" }} />
           </Container>
         );
       case false:
@@ -77,7 +60,7 @@ class Search extends Component {
           <Container
             onClick={() => {
               this.setState(prevState => {
-                return { toggleSearch: "Expand" };
+                return { toggleSearch: !prevState.toggleSearch };
               });
             }}
             style={{
@@ -96,7 +79,12 @@ class Search extends Component {
   };
 
   render() {
-    return <div>{this.toggleSearch()}</div>;
+    return (
+      <div>
+        {this.state.toggleSearch ? <SearchPopUp /> : null}
+        {this.toggleSearch()}
+      </div>
+    );
   }
 }
 

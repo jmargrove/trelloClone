@@ -10,11 +10,12 @@ import { moveItem } from "./../actions";
 
 const Container = styled.div`
   padding: 10px;
-  width: 100vw;
+  min-width: 1400px;
   height: 800px;
   background-color: #fafafa;
   display: flex;
   flex-direction: row;
+  overflow-x: scroll;
 `;
 
 const mapDispatchToProps = dispatch => ({
