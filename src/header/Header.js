@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 import BoardSelect from "./BoardSelect";
 import Search from "./Search";
 import PlusIcon from "mdi-react/PlusIcon";
 import AlarmIcon from "mdi-react/AlarmIcon";
 import InformationOutlineIcon from "mdi-react/InformationOutlineIcon";
-import SearchPopUp from "./SearchPopUp";
+// import SearchPopUp from "./SearchPopUp";
 import {
   Container,
   CloneLogoBar,

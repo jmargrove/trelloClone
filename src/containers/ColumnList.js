@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CardInput from "./CardInput";
 import CardItem from "./CardItem"; /// this is the draggable
 import { connect } from "react-redux";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import { Draggable, Droppable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import type {
   DraggableProvided,
