@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
+import { connect } from "react-redux";
 const PopUpWindowWrapper = styled.div`
   position: absolute;
   top: 42px;
@@ -31,7 +31,23 @@ const MyCards = styled.div`
   cursor: pointer;
 `;
 
+const mapStateToProps = state => ({
+  cardsToSearch: state.cards
+});
+
 class SearchPopUp extends Component {
+  componentWillReceiveProps(newProps) {
+    console.log("this is the new props", newProps);
+    const listNames = Object.getOwnPropertyNames(this.props.cardsToSearch);
+    const matchedListName = listNames.map(el => {
+      console.log("el comp", el.substring(0, newProps.searchTerm.length));
+      if (el.substring(0, newProps.searchTerm.length) === newProps.searchTerm) {
+        return el;
+      }
+    });
+    console.log("the state", matchedListName);
+    // first list names
+  }
   render() {
     return (
       <PopUpWindowWrapper>
@@ -61,7 +77,7 @@ class SearchPopUp extends Component {
           >
             <MyCards>
               <div style={{ textAlign: "left", fontSize: "15px" }}>
-                My Cards @ me
+                My Cards @ me {this.props.searchTerm}
               </div>
             </MyCards>
           </div>
@@ -110,4 +126,4 @@ class SearchPopUp extends Component {
   }
 }
 
-export default SearchPopUp;
+export default connect(mapStateToProps, null)(SearchPopUp);

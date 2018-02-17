@@ -72,7 +72,6 @@ const reducer = (state = defaultState, action) => {
           colToSwitch: null
         };
       }
-
     default:
       return state;
   }

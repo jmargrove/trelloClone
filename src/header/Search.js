@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+// import { connect } from "react-redux";
 import MagnifyIcon from "mdi-react/MagnifyIcon";
 import OpenInNewIcon from "mdi-react/OpenInNewIcon";
 import { Container } from "./StyledComponents.js";
@@ -23,9 +24,15 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggleSearch: false
+      toggleSearch: false,
+      searchTerm: null
     };
   }
+
+  handleFieldChange = (event: object) => {
+    this.setState({ searchTerm: event.target.value });
+  };
+
   toggleSearch = () => {
     switch (this.state.toggleSearch) {
       case true:
@@ -39,10 +46,10 @@ class Search extends Component {
             }}
           >
             <Input
-              refs={el => (this.searchTerm = el)}
               autoFocus={true}
               style={{ marginLeft: "10px", backgroundColor: "white" }}
               className="inputAnimate"
+              onChange={this.handleFieldChange}
             />
             <OpenInNewIcon style={{ marginRight: "5px" }} />
             <CloseIcon
@@ -79,9 +86,12 @@ class Search extends Component {
   };
 
   render() {
+    console.log("searching ", this.state.searchTerm);
     return (
       <div>
-        {this.state.toggleSearch ? <SearchPopUp /> : null}
+        {this.state.toggleSearch ? (
+          <SearchPopUp searchTerm={this.state.searchTerm} />
+        ) : null}
         {this.toggleSearch()}
       </div>
     );
