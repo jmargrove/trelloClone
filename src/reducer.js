@@ -57,7 +57,7 @@ const reducer = (state = defaultState, action) => {
 
         return { ...state, cards: { ...newCardState }, itemsToSwitch: null };
       }
-
+      break;
     case "REORDER_COLS":
       if (action.obj.source === null || action.obj.destination === null) {
         return state;

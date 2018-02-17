@@ -3,7 +3,7 @@ import styled from "styled-components";
 import MagnifyIcon from "mdi-react/MagnifyIcon";
 import OpenInNewIcon from "mdi-react/OpenInNewIcon";
 import { Container } from "./StyledComponents.js";
-import SquareButton from "./../containers/SquareButton";
+// import SquareButton from "./../containers/SquareButton";
 import CloseIcon from "mdi-react/CloseIcon";
 import SearchPopUp from "./SearchPopUp";
 
@@ -41,7 +41,7 @@ class Search extends Component {
             <Input
               refs={el => (this.searchTerm = el)}
               autoFocus={true}
-              style={{ marginLeft: "10px" }}
+              style={{ marginLeft: "10px", backgroundColor: "white" }}
               className="inputAnimate"
             />
             <OpenInNewIcon style={{ marginRight: "5px" }} />
@@ -74,7 +74,7 @@ class Search extends Component {
           </Container>
         );
       default:
-        null;
+        return null;
     }
   };
 
