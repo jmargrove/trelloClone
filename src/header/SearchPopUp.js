@@ -36,93 +36,140 @@ const mapStateToProps = state => ({
 });
 
 class SearchPopUp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      matchedListName: null,
+      cardsSearch: null
+    };
+  }
   componentWillReceiveProps(newProps) {
     console.log("this is the new props", newProps);
+    // first search the list names
     const listNames = Object.getOwnPropertyNames(this.props.cardsToSearch);
     const matchedListName = listNames.map(el => {
-      console.log("el comp", el.substring(0, newProps.searchTerm.length));
       if (el.substring(0, newProps.searchTerm.length) === newProps.searchTerm) {
         return el;
       }
     });
-    console.log("the state", matchedListName);
-    // first list names
+    // now seearch the cards
+    let cardsSearch = [];
+    if (this.props.cardsToSearch) {
+      for (let i in this.props.cardsToSearch) {
+        cardsSearch.push(
+          this.props.cardsToSearch[i].map(el => {
+            if (
+              el.substring(0, newProps.searchTerm.length) ===
+              newProps.searchTerm
+            ) {
+              return el;
+            }
+          })
+        );
+      }
+    }
+
+    this.setState({
+      cardsSearch: cardsSearch,
+      matchedListName: matchedListName
+    });
   }
   render() {
-    return (
-      <PopUpWindowWrapper>
-        <div
-          style={{
-            height: "75px",
-            display: "flex",
-            flexDirection: "column"
-          }}
-        >
+    if (!this.props.searchTerm) {
+      return (
+        <PopUpWindowWrapper>
           <div
             style={{
-              flex: 1,
-              fontWeight: "bold",
-              textAlign: "left",
-              textSize: "18px"
-            }}
-          >
-            <p style={{ fontSize: "18px" }}> Saved Searches</p>
-          </div>
-          <div
-            style={{
-              flex: 1,
+              height: "75px",
               display: "flex",
-              alignItems: "center"
+              flexDirection: "column"
             }}
           >
-            <MyCards>
-              <div style={{ textAlign: "left", fontSize: "15px" }}>
-                My Cards @ me {this.props.searchTerm}
-              </div>
-            </MyCards>
-          </div>
-        </div>
-        <div
-          style={{
-            height: "140px",
-            borderTop: "solid",
-            borderWidth: "thin",
-            borderColor: "#b2c7ee",
-            display: "flex",
-            flexDirection: "column"
-          }}
-        >
-          <div
-            style={{
-              flex: 1,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center"
-            }}
-          >
-            <p style={{ color: "grey", fontSize: "15px" }}>
-              Refine your search with operators like @member, #label,
-              is:archived, and has:attachments. Learn more…
-            </p>
+            <div
+              style={{
+                flex: 1,
+                fontWeight: "bold",
+                textAlign: "left",
+                textSize: "18px"
+              }}
+            >
+              <p style={{ fontSize: "18px" }}> Saved Searches</p>
+            </div>
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                alignItems: "center"
+              }}
+            >
+              <MyCards>
+                <div style={{ textAlign: "left", fontSize: "15px" }}>
+                  My Cards @ me {this.props.searchTerm}
+                </div>
+              </MyCards>
+            </div>
           </div>
           <div
             style={{
-              flex: 0.75,
+              height: "140px",
+              borderTop: "solid",
+              borderWidth: "thin",
+              borderColor: "#b2c7ee",
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-around"
+              flexDirection: "column"
             }}
           >
-            <p style={{ textAlign: "left", fontWeight: "bold" }}>
-              Looking for help using Trello
-            </p>
-            <p style={{ textAlign: "left", fontSize: "15px" }}>
-              Visit our help site or read the getting started guide
-            </p>
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center"
+              }}
+            >
+              <p style={{ color: "grey", fontSize: "15px" }}>
+                Refine your search with operators like @member, #label,
+                is:archived, and has:attachments. Learn more…
+              </p>
+            </div>
+            <div
+              style={{
+                flex: 0.75,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-around"
+              }}
+            >
+              <p style={{ textAlign: "left", fontWeight: "bold" }}>
+                Looking for help using Trello
+              </p>
+              <p style={{ textAlign: "left", fontSize: "15px" }}>
+                Visit our help site or read the getting started guide
+              </p>
+            </div>
           </div>
-        </div>
-      </PopUpWindowWrapper>
-    );
+        </PopUpWindowWrapper>
+      );
+    } else {
+      return (
+        <PopUpWindowWrapper>
+          <div>
+            {this.state.cardsSearch.map(el => {
+              if (el) {
+                return <div>{el}</div>;
+              }
+            })}
+          </div>
+          <div>
+            {this.state.matchedListName.map(el => {
+              if (el) {
+                return <div>{el}</div>;
+              }
+            })}
+          </div>
+        </PopUpWindowWrapper>
+      );
+    }
   }
 }
 
