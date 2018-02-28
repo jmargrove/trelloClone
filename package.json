@@ -1,6 +1,6 @@
 {
-  "name": "trelloclone",
   "homepage": "https://t03jam8.github.io/trelloClone/",
+  "name": "trelloclone",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
