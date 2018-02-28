@@ -1,4 +1,5 @@
 import { defaultState } from "./defaultState";
+import { newBoardObj } from "./newBoardObj";
 
 // function to switch cards around, returns a new object for the cards
 function switchCards(card1: array, card2: array, cards) {
@@ -63,6 +64,14 @@ const reducer = (state = defaultState, action) => {
           colToSwitch: null
         };
       }
+    case "UPDATE_BOARD":
+      return {
+        ...action.newState
+      };
+    case "CREATE_NEW_BOARD":
+      return {
+        ...newBoardObj
+      };
     default:
       return state;
   }

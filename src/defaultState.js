@@ -1,6 +1,11 @@
 export const defaultState = {
-  boardTitle: ["Front Product Roadmap"],
-  boardTitles: ["Growth Template", "Personal & Work Goals", "Hiring Funnel"],
+  boardTitle: ["Growth Template"],
+  boardTitles: [
+    "Growth Template",
+    "Personal & Work Goals",
+    "Hiring Funnel",
+    "Front Product Roadmap"
+  ],
   listTitles: ["Ideas", "Low impact, low effort", "High impact, Low effort"],
   cards: {
     Ideas: [

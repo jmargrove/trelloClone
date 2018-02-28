@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { boardUpdate, createNewBoard } from "./../actions";
 
 const mapStateToProps = state => ({
   boardTitles: state.boardTitles
+});
+
+const mapDispatchToProps = dispatch => ({
+  changeBoard: bObj => dispatch(boardUpdate(bObj)),
+  newBoard: () => dispatch(createNewBoard())
 });
 
 const PopUpWindowWrapper = styled.div`
@@ -35,11 +41,15 @@ const YourBoards = styled.div`
 `;
 
 class BoardsSelection extends Component {
-  handleFetch = () => {
+  handleFetch = (boardTitle: string) => {
+    boardTitle = boardTitle.replace(/\s/g, "");
+    console.log(boardTitle);
     console.log("fetching");
-    fetch("https://private-2741f-trelloclone.apiary-mock.com/personalwork")
+    fetch(
+      `https://private-2741f-trelloclone.apiary-mock.com/t03jam8/${boardTitle}`
+    )
       .then(r => r.json())
-      .then(res => console.log(res));
+      .then(res => this.props.changeBoard(res));
   };
 
   render() {
@@ -61,14 +71,26 @@ class BoardsSelection extends Component {
         </div>
         {this.props.boardTitles.map(el => {
           return (
-            <YourBoards onClick={() => this.handleFetch(el)}>
+            <YourBoards
+              onClick={() => {
+                this.handleFetch(el);
+                this.props.toggleHandler();
+              }}
+            >
               <div>{el}</div>
             </YourBoards>
           );
         })}
+        <YourBoards
+          onClick={() => {
+            this.props.newBoard();
+          }}
+        >
+          <p>new board?</p>
+        </YourBoards>
       </PopUpWindowWrapper>
     );
   }
 }
 
-export default connect(mapStateToProps, null)(BoardsSelection);
+export default connect(mapStateToProps, mapDispatchToProps)(BoardsSelection);
