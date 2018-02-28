@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 import StarOutlineIcon from "mdi-react/StarOutlineIcon";
 import LockOutlineIcon from "mdi-react/LockOutlineIcon";
+
+const mapStateToProps = state => ({
+  boardTitle: state.boardTitle[0]
+});
 const HeaderBanner = styled.div`
   width: 100vw;
   height: 40px;
@@ -40,7 +45,7 @@ class ProjectTitleBar extends Component {
     return (
       <HeaderBanner>
         <Container>
-          <ProjectTitleText> Trello Clone </ProjectTitleText>
+          <ProjectTitleText> {this.props.boardTitle} </ProjectTitleText>
         </Container>
         <Container style={{ width: "30px" }}>
           <StarOutlineIcon style={{ width: "15px", height: "15px" }} />
@@ -59,4 +64,4 @@ class ProjectTitleBar extends Component {
   }
 }
 
-export default ProjectTitleBar;
+export default connect(mapStateToProps, null)(ProjectTitleBar);

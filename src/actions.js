@@ -27,3 +27,16 @@ export const reorderCols = (obj: object) => {
     obj: obj
   };
 };
+
+export const boardUpdate = (obj: object) => {
+  return {
+    type: "UPDATE_BOARD",
+    newState: obj
+  };
+};
+
+export const createNewBoard = () => {
+  return {
+    type: "CREATE_NEW_BOARD"
+  };
+};

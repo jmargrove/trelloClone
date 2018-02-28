@@ -1,4 +1,7 @@
-//// function to switch cards around, returns a new object for the cards
+import { defaultState } from "./defaultState";
+import { newBoardObj } from "./newBoardObj";
+
+// function to switch cards around, returns a new object for the cards
 function switchCards(card1: array, card2: array, cards) {
   if (card1.title || card2.title) {
     const list1 = cards[card1.title]; // list title from
@@ -16,17 +19,6 @@ function switchCol(col1, col2, colTitles) {
   colTitles.splice(col2, 0, colNameToMove);
   return [...colTitles];
 }
-
-const defaultState = {
-  listTitles: ["backlog", "to do", "doing"],
-  cards: {
-    backlog: ["writting", "the thesis", "blah", "next", "runnin'"],
-    "to do": ["working on app"],
-    doing: ["list", "item"]
-  },
-  itemsToSwitch: null,
-  colToSwitch: null
-};
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -72,6 +64,14 @@ const reducer = (state = defaultState, action) => {
           colToSwitch: null
         };
       }
+    case "UPDATE_BOARD":
+      return {
+        ...action.newState
+      };
+    case "CREATE_NEW_BOARD":
+      return {
+        ...newBoardObj
+      };
     default:
       return state;
   }

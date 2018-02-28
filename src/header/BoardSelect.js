@@ -11,12 +11,20 @@ class BoardSelect extends Component {
     };
   }
 
+  toggleHandler = () => {
+    this.setState(prevState => {
+      return { toggleBoardsSelection: !prevState.toggleBoardsSelection };
+    });
+  };
+
   render() {
     const styles = this.props.style;
     console.log("styles", styles);
     return (
       <div>
-        {this.state.toggleBoardsSelection ? <BoardsSelection /> : null}
+        {this.state.toggleBoardsSelection ? (
+          <BoardsSelection toggleHandler={this.toggleHandler} />
+        ) : null}
         <Container
           onClick={() => {
             this.setState(prevState => {
