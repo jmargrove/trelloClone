@@ -5,3 +5,8 @@
 <p align = "center">
   <img src = "https://s3-eu-west-1.amazonaws.com/james.margrove/generalReadMEpictures/trelloClone1.png" width = "602px">
 </p>
+
+
+<p align = "center">
+  <img src = "https://s3-eu-west-1.amazonaws.com/james.margrove/generalReadMEpictures/trelloClone1.png" width = "602px">
+</p>
