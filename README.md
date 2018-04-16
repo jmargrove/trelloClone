@@ -3,8 +3,9 @@ https://t03jam8.github.io/trelloClone/
 <p> drag and drop clone of the trello web app <p> 
 
 <p align = "center">
-  <img src = "https://thumbs.gfycat.com/WelltodoDeadlyJenny-size_restricted.gif" width = "602px">
+  <img src = "https://thumbs.gfycat.com/ColdWindyIberianemeraldlizard-size_restricted.gif" width = "602px">
 </p>
+
 
 <h2> Getting started </h2> 
  <ul>
