@@ -23,6 +23,9 @@ https://t03jam8.github.io/trelloClone/
 <ul>
  <li>Search</li>
  <li>Edit tasks</li>
+  <li>Login</li>
+  <li>backend</l>
+  <li>store data</li>
 </ul>
 
 <h2> Contributing</h2>
