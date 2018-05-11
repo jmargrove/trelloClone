@@ -33,6 +33,11 @@ class Search extends Component {
     this.setState({ searchTerm: event.target.value });
   };
 
+  handleOnBlur = () => {
+    console.log("on blur handle");
+    this.setState({ toggleSearch: false });
+  };
+
   toggleSearch = () => {
     switch (this.state.toggleSearch) {
       case true:
@@ -90,7 +95,10 @@ class Search extends Component {
     return (
       <div>
         {this.state.toggleSearch ? (
-          <SearchPopUp searchTerm={this.state.searchTerm} />
+          <SearchPopUp
+            searchTerm={this.state.searchTerm}
+            handleOnBlur={this.handleOnBlur}
+          />
         ) : null}
         {this.toggleSearch()}
       </div>
