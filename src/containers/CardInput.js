@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AddCardButton from "./AddCardButton";
+import AddCardButton from "./../presentational/AddCardButton";
 import CardNameInputBox from "./CardNameInputBox";
 
 class CardInput extends Component {

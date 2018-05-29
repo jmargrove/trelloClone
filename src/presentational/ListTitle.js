@@ -18,15 +18,13 @@ const Title = styled.p`
   font-size: 15px;
 `;
 
-class ListTitle extends Component {
-  render() {
-    const title = this.props.children;
-    return (
-      <Header>
-        <Title>{title}</Title>
-      </Header>
-    );
-  }
-}
+const ListTitle = () => {
+  const title = this.props.children;
+  return (
+    <Header>
+      <Title>{title}</Title>
+    </Header>
+  );
+};
 
 export default ListTitle;

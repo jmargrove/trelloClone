@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import SearchedItem from "./SearchedItem.js";
+
 const PopUpWindowWrapper = styled.div`
   position: absolute;
   top: 42px;
@@ -76,8 +78,14 @@ class SearchPopUp extends Component {
   }
   render() {
     if (!this.props.searchTerm) {
+      console.log(this.state.cardSearch);
       return (
-        <PopUpWindowWrapper>
+        <PopUpWindowWrapper
+          onMouseOver={() => console.log("mouse over...")}
+          onFocus={() => console.log("ldnjcnkjsdnc focus")}
+          onBlur={() => console.log("onBlur blur ....")}
+        >
+          thus is the wrapper
           <div
             style={{
               height: "75px",
@@ -151,22 +159,24 @@ class SearchPopUp extends Component {
         </PopUpWindowWrapper>
       );
     } else {
+      console.log(this.state.cardSearch);
       return (
-        <PopUpWindowWrapper>
-          <div>
+        <PopUpWindowWrapper onBlur={this.props.handleOnBlur}>
+          blur
+          <SearchedItem>
             {this.state.cardsSearch.map(el => {
               if (el) {
                 return <div>{el}</div>;
               }
             })}
-          </div>
-          <div>
+          </SearchedItem>
+          {/* <SearchedItem>
             {this.state.matchedListName.map(el => {
               if (el) {
                 return <div>{el}</div>;
               }
             })}
-          </div>
+          </SearchedItem> */}
         </PopUpWindowWrapper>
       );
     }

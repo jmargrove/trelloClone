@@ -54,7 +54,7 @@ class BoardsSelection extends Component {
 
   render() {
     return (
-      <PopUpWindowWrapper>
+      <PopUpWindowWrapper onClickOut={() => console.log("Blur")}>
         <div
           style={{
             width: 200,
@@ -72,6 +72,7 @@ class BoardsSelection extends Component {
         {this.props.boardTitles.map(el => {
           return (
             <YourBoards
+              key={el}
               onClick={() => {
                 this.handleFetch(el);
                 this.props.toggleHandler();
@@ -84,6 +85,7 @@ class BoardsSelection extends Component {
         <YourBoards
           onClick={() => {
             this.props.newBoard();
+            this.props.toggleHandler();
           }}
         >
           <p>new board?</p>

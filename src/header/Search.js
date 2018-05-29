@@ -4,7 +4,7 @@ import styled from "styled-components";
 import MagnifyIcon from "mdi-react/MagnifyIcon";
 import OpenInNewIcon from "mdi-react/OpenInNewIcon";
 import { Container } from "./StyledComponents.js";
-// import SquareButton from "./../containers/SquareButton";
+// import SquareButton from "./../presentational/SquareButton";
 import CloseIcon from "mdi-react/CloseIcon";
 import SearchPopUp from "./SearchPopUp";
 
@@ -31,6 +31,11 @@ class Search extends Component {
 
   handleFieldChange = (event: object) => {
     this.setState({ searchTerm: event.target.value });
+  };
+
+  handleOnBlur = () => {
+    console.log("on blur handle");
+    this.setState({ toggleSearch: false });
   };
 
   toggleSearch = () => {
@@ -90,7 +95,10 @@ class Search extends Component {
     return (
       <div>
         {this.state.toggleSearch ? (
-          <SearchPopUp searchTerm={this.state.searchTerm} />
+          <SearchPopUp
+            searchTerm={this.state.searchTerm}
+            handleOnBlur={this.handleOnBlur}
+          />
         ) : null}
         {this.toggleSearch()}
       </div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import SquareButton from "./SquareButton";
+import SquareButton from "./../presentational/SquareButton";
 import styled from "styled-components";
 import { addNewCard } from "./../actions.js";
 
@@ -23,6 +23,11 @@ class CardNameInputBox extends Component {
       <div style={{ overflow: "auto" }}>
         <CardItemContainer>
           <ListCardDetailsInput
+            onKeyPress={e => {
+              if (e.key === "Enter") {
+                this.addingNewCardName();
+              }
+            }}
             innerRef={el => (this.newCardName = el)}
             required={true}
             rows="3"
@@ -49,7 +54,7 @@ class CardNameInputBox extends Component {
   }
 }
 
-const ListCardDetailsInput = styled.textarea`
+const ListCardDetailsInput = styled.input`
   outline: none;
   border: none;
   width: 230px;
