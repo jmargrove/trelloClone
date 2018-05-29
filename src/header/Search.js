@@ -4,7 +4,7 @@ import styled from "styled-components";
 import MagnifyIcon from "mdi-react/MagnifyIcon";
 import OpenInNewIcon from "mdi-react/OpenInNewIcon";
 import { Container } from "./StyledComponents.js";
-// import SquareButton from "./../containers/SquareButton";
+// import SquareButton from "./../presentational/SquareButton";
 import CloseIcon from "mdi-react/CloseIcon";
 import SearchPopUp from "./SearchPopUp";
 

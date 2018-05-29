@@ -9,10 +9,8 @@ const List = styled.div`
   min-height: 45px;
 `;
 
-class ListContainer extends Component {
-  render() {
-    return <List>{this.props.children}</List>;
-  }
-}
+const ListContainer = () => {
+  return <List>{this.props.children}</List>;
+};
 
 export default ListContainer;

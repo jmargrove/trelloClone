@@ -8,10 +8,8 @@ const ColumnListContainer = styled.div`
   margin-right: 5px;
 `;
 
-class ColumnListContainer extends Component {
-  render() {
-    return <Column>{this.props.children}</Column>;
-  }
-}
+const ColumnListContainer = () => {
+  return <Column>{this.props.children}</Column>;
+};
 
 export default ColumnListContainer;

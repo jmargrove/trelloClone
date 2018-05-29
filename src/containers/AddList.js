@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { ColumnListContainer, ListContainer } from "./styled";
-import AddListButton from "./AddListButton";
+import { ColumnListContainer, ListContainer } from "./../presentational/styled";
+import AddListButton from "./../presentational/AddListButton";
 import AddListInput from "./AddListInput";
 
 class AddList extends Component {
