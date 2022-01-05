@@ -9,7 +9,7 @@ https://jmargrove.github.io/trelloClone/
 
 <h2> Getting started </h2> 
  <ul>
- <li>Clone this repo, git clone https://github.com/t03jam8/trelloClone.git</li>
+ <li>Clone this repo, git clone https://github.com/jmargrove/trelloClone.git</li>
  <li>Install all dependancies npm install</li>
  <li>To start the client in developer mode run npm start at the command line </li>
  </ul>
